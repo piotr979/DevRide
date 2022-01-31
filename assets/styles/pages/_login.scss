@@ -1,0 +1,17 @@
+.login-form__wrapper input, .login-form__wrapper label {
+    display: block;
+    text-align: center;
+}
+.login-form__wrapper input {
+    border: 1px solid $c-tint-1;
+    margin-top: .6rem;
+}
+.login-form__wrapper button {
+    width: 7rem;
+    margin:1rem auto;
+    padding: 0 1rem;
+  }
+.login-form__message {
+    margin: 0 auto;
+    padding-top: 1rem;
+}

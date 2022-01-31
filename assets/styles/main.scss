@@ -1,0 +1,79 @@
+@import 'base/reset';
+
+@import 'abstract/mixins';
+@import 'abstract/variables';
+
+@import 'base/grid';
+@import 'base/typography';
+
+@import 'components/small-teaser';
+@import 'components/about-me-card';
+@import 'components/buttons';
+@import 'components/hero';
+@import 'components/newsletter-card';
+
+
+@import 'layout/footer';
+@import 'layout/header';
+@import 'layout/navigation';
+
+@import 'vendors/navigator';
+@import 'vendors/prism';
+
+@import 'pages/admin';
+@import 'pages/home';
+@import 'pages/login';
+
+@import 'base/queries';
+
+@include spacingGenerator(margin, top, t);
+@include spacingGenerator(margin, left, s);
+@include spacingGenerator(margin, right, e);
+@include spacingGenerator(margin, bottom, b);
+
+@include spacingGenerator(padding, top, t);
+@include spacingGenerator(padding, left, s);
+@include spacingGenerator(padding, right, e);
+@include spacingGenerator(padding, bottom, b);
+
+body {
+  background-color: $c-primary;
+}
+.txt-center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.txt-left {
+  text-align: left;
+}
+.txt-right {
+  text-align: right;
+}
+
+.p-relative {
+  position: relative;
+}
+.peaks-footer {
+  width: 100%;
+  margin: 0;
+  padding:0;
+  line-height: 0;
+}
+.rotate-slow {
+  animation: rotate-slow;
+  animation-duration: 300s;
+  animation-iteration-count: infinite;
+}
+@keyframes rotate-slow {
+  0% {
+    transform: rotate(360deg);
+
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+}
+}

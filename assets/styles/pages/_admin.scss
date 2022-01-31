@@ -1,0 +1,20 @@
+.admin-page {
+    display: grid;
+    grid-template-columns: 10rem 1fr;
+    color: white;
+}
+
+.admin-aside {
+    grid-column: 1/2;
+    display: fixed;
+    color: $c-tint-3;
+}
+.admin-aside a {
+    display: block;
+}
+.admin-aside__active  {
+    color: white;
+}
+.admin-main {
+    grid-column: 2/3;
+}

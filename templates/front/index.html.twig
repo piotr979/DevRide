@@ -1,0 +1,317 @@
+{% extends 'front/base.html.twig' %}
+
+{% block body %}
+<div class="container bg-light">
+<div class="nav-clip-path " id="nav-parent">
+    <header class="wrapper header justify-spread backgrounds-styling" 
+   
+    style="
+    background-image: url('images/nav/bg-header/stars.svg'), url('images/nav/bg-header/circles.svg'), url('images/nav/bg-header/cassiopeia.svg'); 
+   ">
+        <div class="logo" >
+        <img class="logo-icon" src="images/nav/ring-ship.svg" alt="ship with ring icon">
+        <img src="images/logo_improved.svg" alt="">
+        </div>
+        <nav class="top-nav">
+            
+            <div class="mb-5 peaks-mobile">
+                <div class="bg-light"></div>
+                <img class="peaks-footer" src="images/peaks-footer-with-background.svg" alt="">
+                </div>
+         
+            <ul class="top-nav__list">
+                <a href="#" class="top-nav__list-anchor">
+                    <li class="dark-nav__list-item">Home</li>
+                </a>
+                <a href="{{ path('phpbasics') }}" class="top-nav__list-anchor">
+                    <li class="dark-nav__list-item">Kurs PHP</li>
+                </a>
+                <a href="#" class="top-nav__list-anchor">
+                    <li class="dark-nav__list-item">Symfony</li>
+                </a>
+                <a href="#" class="top-nav__list-anchor">
+                    <li class="dark-nav__list-item">Kontakt</li>
+                </a>
+            </ul>
+            
+        </nav>
+        <button class="btn-mobile-nav">
+            <img class="open-mobile-nav icon-mobile-nav" src="images/nav/hamburger.svg" alt="Open mobile menu">
+            <img class="close-mobile-nav icon-mobile-nav" src="images/nav/close_big.svg" alt="Close mobile menu">
+        </button>
+    </header> 
+</div>
+</div>
+<div class="container bg-light pt-5 pb-5 container-hero">
+    <div class="hero-background">
+        <img class="hero--sputnik animate__animated animate__fadeInUp" src="images/nav/bg-hero/sputnick-1.svg" alt="">
+    <img class="hero--star-1 animate__animated animate__fadeInDown" src="images/nav/bg-hero/star.svg" alt="">
+    <img class="hero--star-2 animate__animated animate__fadeInUp" src="images/nav/bg-hero/star.svg" alt="">
+    <div class="hero--sat animate__animated animate__fadeInRight">
+    <img class="hero--sat" src="images/nav/bg-hero/space-dish.svg" alt="">
+</div>
+</div>
+    <div class="wrapper hero">
+        <div class="hero--image-set">
+            <img class="hero--bg-image" src="images/nav/bg-hero/bg-hero-lines.svg" alt="person with Augemented Reality glasses">
+        <img class="hero--image" src="images/general_icons/AR_7.svg" alt="person with Augemented Reality glasses">
+    </div>
+        <div class="hero--motto">
+            <h2 class="pb-1 hero--motto__heading">Nie zawsze jest łatwo,
+                ale warto się uczyć</h2>
+                <div class="txt-center">
+            <a class="btn btn-teritary" href="#">Subskrybuj</a>
+        </div>
+        </div>
+    </div>
+    
+</div>
+<img class="peaks-hero" src="images/peaks-hero.svg" alt="">
+<div class="container p-relative">
+    <img class="sattelite-in-background" src="images/article_icons/black_white/satellite.svg" alt="image under article teaser">
+</div>
+
+<div class="heading">
+    <h4 class="heading-text">Nowe, najnowsze
+        <span class="heading-shadowed">Nowe, najnowsze</span>
+    </h4>
+
+</div>
+
+    
+<section class="wrapper  with-aside">
+   <div class="chapter">
+
+    <!-- ARTICLE STARTS HERE -->
+    <article class="teaser mt-6">
+        <img class="teaser--image__under under-right" src="images/article_icons/black_white/alien-ship.svg" alt="image under article teaser">
+        <a class="teaser--anchor" href="#">
+            <div class="teaser--wrapper">
+        <div class="teaser--logo">
+            <img src="images/article_icons/alien-ship.svg" alt="article logo">
+        </div>
+        <div class="teaser--title">
+        
+            <h3>10 nowości PHP 8.1, które warto znać</h3>
+            <p>Dodano: 04.09.2021</p>
+            <small class="teaser--category">
+                Kategoria: PHP
+            </small>
+        </div>
+        <div class="teaser-bottom">
+            <p>Ciekawy artykuł o nowościach w PHP 8.1 (po angielsku). Link do treści w artykule.</p>
+        </div>
+    </div>
+    </a>
+    </article>
+
+    <!-- ARTICLE ENDS HERE -->
+
+     <!-- ARTICLE STARTS HERE -->
+     <article class="teaser mt-6">
+        <img class="teaser--image__under under-left" src="images/article_icons/black_white/rocket.svg" alt="image under article teaser">
+        <a class="teaser--anchor" href="#">
+            <div class="teaser--wrapper">
+        <div class="teaser--logo">
+            <img src="images/article_icons/rocket.svg" alt="article logo">
+        </div>
+        <div class="teaser--title">
+        
+            <h3>10 nowości PHP 8.1, które warto znać</h3>
+            <p>Dodano: 04.09.2021</p>
+            <small class="teaser--category">
+                Kategoria: PHP
+            </small>
+        </div>
+        <div class="teaser-bottom">
+            <p>Ciekawy artykuł o nowościach w PHP 8.1 (po angielsku). Link do treści w artykule.</p>
+        </div>
+    </div>
+    </a>
+    </article>
+
+    <!-- ARTICLE ENDS HERE -->
+
+     <!-- ARTICLE STARTS HERE -->
+     <article class="teaser mt-6">
+        <img class="teaser--image__under under-right" src="images/article_icons/black_white/falling-star.svg" alt="image under article teaser">
+        <a class="teaser--anchor" href="#">
+            <div class="teaser--wrapper">
+        <div class="teaser--logo">
+            <img src="images/article_icons/falling-star.svg" alt="article logo">
+        </div>
+        <div class="teaser--title">
+        
+            <h3>10 nowości PHP 8.1, które warto znać</h3>
+            <p>Dodano: 04.09.2021</p>
+            <small class="teaser--category">
+                Kategoria: PHP
+            </small>
+        </div>
+        <div class="teaser-bottom">
+            <p>Ciekawy artykuł o nowościach w PHP 8.1 (po angielsku). Link do treści w artykule.</p>
+        </div>
+    </div>
+    </a>
+    </article>
+
+    <!-- ARTICLE ENDS HERE -->
+
+</div>
+<aside class="chapter-aside">
+    <div class="newsletter-card pb-2">
+        <img class="newsletter-card--image" src="images/general_icons/AR_5.svg" alt="newsletter icon">
+        <h3 class="newsletter-card--heading pb-1">Newsletter</h3>
+        <p class="newsletter-card--text pb-1">Najnowsze artykuły i wiadomości wprost na Twoją skrzynkę. Nie przegap.</p>
+        <a href="#" class="btn btn-newsletter">Zapisz mnie</a>
+    </div>
+ </aside>
+</section>
+
+<div class="container bg-light">
+<section class="wrapper small-teasers">
+
+    <!-- SMALL TEASER STARTS HERE -->
+    <div class="small-teaser">
+        <img class="small-teaser--image-1" src="images/article_icons/black_white/c-1-alien.svg" alt="alien character from space" >
+    <h3>Zmienne w PHP</h3>
+    <p class="pb-2">Podstawy programowania w PHP część 3</p>
+    <div class="btn-teaser-wrapper">
+    <a class="btn btn-teaser-1 mb-2" href="">Czytaj</a>
+</div>
+    </div>
+     <!-- SMALL TEASER ENDS HERE -->
+
+      <!-- SMALL TEASER STARTS HERE -->
+    <div class="small-teaser">
+        <img class="small-teaser--image-2" src="images/article_icons/black_white/c-2-pluto.svg" alt="alien character from space" >
+    <h3>Zmienne w PHP</h3>
+    <p class="pb-2">Podstawy programowania w PHP część 3</p>
+    <div class="btn-teaser-wrapper">
+    <a class="btn btn-teaser-2 mb-2" href="">Czytaj</a>
+</div>
+</div>
+   
+     <!-- SMALL TEASER ENDS HERE -->
+
+      <!-- SMALL TEASER STARTS HERE -->
+    <div class="small-teaser">
+        <img class="small-teaser--image-3" src="images/article_icons/black_white/c-3-atronaut.svg" alt="alien character from space" >
+    <h3>Zmienne w PHP</h3>
+    <p class="pb-2">Podstawy programowania w PHP część 3</p>
+    <div class="btn-teaser-wrapper">
+    <a class="btn btn-teaser-3 mb-2" href="">Czytaj</a>
+</div>
+    </div>
+     <!-- SMALL TEASER ENDS HERE -->
+ 
+</section>
+
+</div>
+<section class="wrapper  with-aside">
+    <div class="chapter">
+ 
+     <!-- ARTICLE STARTS HERE -->
+     <article class="teaser mt-6">
+         <img class="teaser--image__under under-right" src="images/article_icons/black_white/alien-ship.svg" alt="image under article teaser">
+         <a class="teaser--anchor" href="#">
+             <div class="teaser--wrapper">
+         <div class="teaser--logo">
+             <img src="images/article_icons/alien-ship.svg" alt="article logo">
+         </div>
+         <div class="teaser--title">
+         
+             <h3>10 nowości PHP 8.1, które warto znać</h3>
+             <p>Dodano: 04.09.2021</p>
+             <small class="teaser--category">
+                 Kategoria: PHP
+             </small>
+         </div>
+         <div class="teaser-bottom">
+             <p>Ciekawy artykuł o nowościach w PHP 8.1 (po angielsku). Link do treści w artykule.</p>
+         </div>
+     </div>
+     </a>
+     </article>
+ 
+     <!-- ARTICLE ENDS HERE -->
+ 
+      <!-- ARTICLE STARTS HERE -->
+      <article class="teaser mt-6">
+         <img class="teaser--image__under under-left" src="images/article_icons/black_white/rocket.svg" alt="image under article teaser">
+         <a class="teaser--anchor" href="#">
+             <div class="teaser--wrapper">
+         <div class="teaser--logo">
+             <img src="images/article_icons/rocket.svg" alt="article logo">
+         </div>
+         <div class="teaser--title">
+         
+             <h3>10 nowości PHP 8.1, które warto znać</h3>
+             <p>Dodano: 04.09.2021</p>
+             <small class="teaser--category">
+                 Kategoria: PHP
+             </small>
+         </div>
+         <div class="teaser-bottom">
+             <p>Ciekawy artykuł o nowościach w PHP 8.1 (po angielsku). Link do treści w artykule.</p>
+         </div>
+     </div>
+     </a>
+     </article>
+ 
+     <!-- ARTICLE ENDS HERE -->
+ 
+      <!-- ARTICLE STARTS HERE -->
+      <article class="teaser mt-6">
+         <img class="teaser--image__under under-right" src="images/article_icons/black_white/falling-star.svg" alt="image under article teaser">
+         <a class="teaser--anchor" href="#">
+             <div class="teaser--wrapper">
+         <div class="teaser--logo">
+             <img src="images/article_icons/falling-star.svg" alt="article logo">
+         </div>
+         <div class="teaser--title">
+         
+             <h3>10 nowości PHP 8.1, które warto znać</h3>
+             <p>Dodano: 04.09.2021</p>
+             <small class="teaser--category">
+                 Kategoria: PHP
+             </small>
+         </div>
+         <div class="teaser-bottom">
+             <p>Ciekawy artykuł o nowościach w PHP 8.1 (po angielsku). Link do treści w artykule.</p>
+         </div>
+     </div>
+     </a>
+     </article>
+ 
+     <!-- ARTICLE ENDS HERE -->
+ 
+ </div>
+ <aside class="chapter-aside">
+     <div class="aboutme-card pb-2">
+         <img class="aboutme-card--image" src="images/general_icons/morty.svg" alt="character image">
+         <h3 class="aboutme-card--heading pb-1">O sobie samym :)</h3>
+         <p class="aboutme-card--text pb-1">Mam na imię Piotr i zajmuję się przede wszystkim PHP oraz nieco front-endem.
+            Choć cały czas jeszcze  zdobywam nową wiedzę to chętnie się nią z Tobą podzielę. </p>
+     </div>
+  </aside>
+ </section>
+<div class="bg-light mt-4">
+<img class="peaks-footer" src="images/peaks-footer.svg" alt="">
+</div>
+<div class="container bg-light ">
+<footer class="wrapper articles-bottom">
+  <div>
+      <img class="footer--image__logo" src="images/logo.svg" alt="devRide logo">
+      <a href=""><small>www.github.com/piotr979</small></a>
+  </div>
+  <div class="footer--middle">
+      <p>devRide to strona poświęcona programowaniu.
+           Zapraszam do subskrybowania, aby być na bieżąco z nowymi informacjami.</p>
+  </div>
+  <div class="">
+      <img class="footer--image" src="images/general_icons/AR_6.svg" alt="">
+  </div>
+</section>
+</div>
+{% endblock %}

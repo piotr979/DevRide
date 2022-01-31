@@ -1,0 +1,32 @@
+
+// MARGIN / PADDING GENERATORS LIKE BOOSTRAP
+// MS/MT/MB/ME PS/PT/PB/PE
+@mixin makeMargin($direction, $value) {
+    margin-#{$direction}: $value + rem;
+}
+@mixin makePadding($direction, $value) {
+    padding-#{$direction}: $value + rem;
+}
+
+/*
+* $type margin, padding
+* $direction top,bottom,left,right
+* $abbr t,b,s,e
+*/
+
+@mixin spacingGenerator($type, $direction, $abbr) {
+    @for $i from 1 through 8 {
+        @if $type == margin {
+        .m#{$abbr}-#{$i}  { margin-#{$direction}: $i + rem; }
+        } @else {
+         .p#{$abbr}-#{$i}  { padding-#{$direction}: $i + rem; }
+        }
+    }
+}
+
+// THIS DOESNT WORK
+// @mixin btnTeaserColorGenerator($test) {
+//     @for $i from 1 through 3 {
+//     .btn-teaser-#{$i} { background-color:  $color-bg-image-#{$i} }
+//     }
+// }

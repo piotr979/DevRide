@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome Admin!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <link rel="stylesheet"
+  href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
+     
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+
+        {% block javascripts %}
+       <script src="https://cdn.tiny.cloud/1/l8uwbak1mjxo895bp92fo6cr1d2uqmjo4lxqwp0dt9cwjjku/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+        {% endblock %}
+    </head>
+    <body>
+    <div class="wrapper admin-page">
+<aside class="admin-aside">
+<a class="mt-1" href="{{ path('articles') }}" >Home page</a>
+<a class="mt-1" href="{{ path('new-article') }}" >New article</a>
+<a class="mt-1" href="{{ path('logout') }}">Log out</a>
+</aside>
+<main class="admin-main">
+
+        {% block body %}{% endblock %}
+
+</main>
+</div>
+    </body>
+</html>

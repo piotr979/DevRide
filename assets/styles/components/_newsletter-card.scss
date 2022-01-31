@@ -1,0 +1,21 @@
+.newsletter-card {
+    background-image: linear-gradient(136deg, #FBA618 0%, #F56D0A 100%);
+    border-radius: 15px;
+color: #453021;
+margin: 0 auto;
+width: 100%;
+text-align: center;
+padding: 0 1rem;
+}
+
+.newsletter-card--heading, .newsletter-card--text {
+    color: #4C260B;
+}
+.newsletter-card--heading {
+    text-transform: uppercase
+}
+.newsletter-card--image {
+    filter: drop-shadow(0 2px 12px #644726);
+    width: 8rem;
+    margin-top: -4rem;
+}
