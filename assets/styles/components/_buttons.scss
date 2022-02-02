@@ -1,13 +1,24 @@
 
-.btn {
+.btn, .btn-admin {
 border-radius: 5px;
 font-family: $h-font;
 text-transform: uppercase;
 font-size: 1.6rem;
 letter-spacing: 0;
-padding: .7rem 1rem;
 text-align: center;
 cursor: pointer;
+}
+.btn {
+    padding: 0.7rem 1rem;
+}
+.btn-admin {
+    padding: 0rem 1.4rem;
+    margin: 1rem 0;
+
+}
+.btn-admin__primary {
+    background: #1f5485;
+    color: #BCCEE7;
 }
 .btn-primary {
     background: #5C2C69;

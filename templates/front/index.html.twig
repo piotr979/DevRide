@@ -32,6 +32,11 @@
                 <a href="#" class="top-nav__list-anchor">
                     <li class="dark-nav__list-item">Kontakt</li>
                 </a>
+                {% if is_granted("IS_AUTHENTICATED_FULLY") %}
+                 <a href="{{ path('logout') }}" class="top-nav__list-anchor">
+                    <li class="dark-nav__list-item">Log out</li>
+                </a>
+                {% endif %}
             </ul>
             
         </nav>
