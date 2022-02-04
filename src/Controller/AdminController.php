@@ -64,6 +64,7 @@ class AdminController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+
     #[Route('/article-delete/{id}', name: 'article-delete')]
     public function articleDelete($id)
     {
@@ -73,6 +74,12 @@ class AdminController extends AbstractController
         $em->flush();
         $this->addFlash('notice','Item has been removed.');
         return $this->redirectToRoute('articles');
+    }
+
+    #[Route('/website-settings', name: 'website-settings')]
+    public function websiteSettings()
+    {
+        return $this->render('admin/website-settings.html.twig');
     }
 
 }
