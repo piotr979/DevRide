@@ -88,79 +88,32 @@
    <div class="chapter">
 
     <!-- ARTICLE STARTS HERE -->
+    {% for article in articles|slice(0,3) %}
     <article class="teaser mt-6">
         <img class="teaser--image__under under-right" src="images/article_icons/black_white/alien-ship.svg" alt="image under article teaser">
-        <a class="teaser--anchor" href="#">
+        <a class="teaser--anchor" href="{{ path('article-read', {'id': article.id }) }}">
             <div class="teaser--wrapper">
         <div class="teaser--logo">
-            <img src="images/article_icons/alien-ship.svg" alt="article logo">
+            <img src="images/article_icons/color/{{ article.icon }}" alt="article logo">
         </div>
         <div class="teaser--title">
         
-            <h3>10 nowości PHP 8.1, które warto znać</h3>
-            <p>Dodano: 04.09.2021</p>
+            <h3>{{ article.title }}</h3>
+            <p>Added on: {{ article.createdAt|date("D/m/Y") }}</p>
             <small class="teaser--category">
-                Kategoria: PHP
+                Category: PHP
             </small>
         </div>
         <div class="teaser-bottom">
-            <p>Ciekawy artykuł o nowościach w PHP 8.1 (po angielsku). Link do treści w artykule.</p>
+            <p>{{ article.subtitle }}</p>
         </div>
     </div>
     </a>
     </article>
-
+    
     <!-- ARTICLE ENDS HERE -->
+    {% endfor %}
 
-     <!-- ARTICLE STARTS HERE -->
-     <article class="teaser mt-6">
-        <img class="teaser--image__under under-left" src="images/article_icons/black_white/rocket.svg" alt="image under article teaser">
-        <a class="teaser--anchor" href="#">
-            <div class="teaser--wrapper">
-        <div class="teaser--logo">
-            <img src="images/article_icons/rocket.svg" alt="article logo">
-        </div>
-        <div class="teaser--title">
-        
-            <h3>10 nowości PHP 8.1, które warto znać</h3>
-            <p>Dodano: 04.09.2021</p>
-            <small class="teaser--category">
-                Kategoria: PHP
-            </small>
-        </div>
-        <div class="teaser-bottom">
-            <p>Ciekawy artykuł o nowościach w PHP 8.1 (po angielsku). Link do treści w artykule.</p>
-        </div>
-    </div>
-    </a>
-    </article>
-
-    <!-- ARTICLE ENDS HERE -->
-
-     <!-- ARTICLE STARTS HERE -->
-     <article class="teaser mt-6">
-        <img class="teaser--image__under under-right" src="images/article_icons/black_white/falling-star.svg" alt="image under article teaser">
-        <a class="teaser--anchor" href="#">
-            <div class="teaser--wrapper">
-        <div class="teaser--logo">
-            <img src="images/article_icons/falling-star.svg" alt="article logo">
-        </div>
-        <div class="teaser--title">
-        
-            <h3>10 nowości PHP 8.1, które warto znać</h3>
-            <p>Dodano: 04.09.2021</p>
-            <small class="teaser--category">
-                Kategoria: PHP
-            </small>
-        </div>
-        <div class="teaser-bottom">
-            <p>Ciekawy artykuł o nowościach w PHP 8.1 (po angielsku). Link do treści w artykule.</p>
-        </div>
-    </div>
-    </a>
-    </article>
-
-    <!-- ARTICLE ENDS HERE -->
 
 </div>
 <aside class="chapter-aside">
@@ -241,28 +194,7 @@
  
      <!-- ARTICLE ENDS HERE -->
  
-      <!-- ARTICLE STARTS HERE -->
-      <article class="teaser mt-6">
-         <img class="teaser--image__under under-left" src="images/article_icons/black_white/rocket.svg" alt="image under article teaser">
-         <a class="teaser--anchor" href="#">
-             <div class="teaser--wrapper">
-         <div class="teaser--logo">
-             <img src="images/article_icons/rocket.svg" alt="article logo">
-         </div>
-         <div class="teaser--title">
-         
-             <h3>10 nowości PHP 8.1, które warto znać</h3>
-             <p>Dodano: 04.09.2021</p>
-             <small class="teaser--category">
-                 Kategoria: PHP
-             </small>
-         </div>
-         <div class="teaser-bottom">
-             <p>Ciekawy artykuł o nowościach w PHP 8.1 (po angielsku). Link do treści w artykule.</p>
-         </div>
-     </div>
-     </a>
-     </article>
+    
  
      <!-- ARTICLE ENDS HERE -->
  

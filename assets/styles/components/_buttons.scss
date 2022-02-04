@@ -33,8 +33,12 @@ cursor: pointer;
     color: #F0E9E4;
 }
 .btn-newsletter {
-    background: #75380B;
-color: #F0E9E4;
+    background-color: #75380B;
+    color: #F0E9E4;
+    transition: .4s background-color; 
+}
+.btn-newsletter:hover {
+    background: lighten(#75380B, 10%);
 }
 .btn-mobile-nav {
     display: none;
@@ -48,16 +52,29 @@ color: #F0E9E4;
 .btn-teaser-3 {
     padding-left: 4rem;
     padding-right: 4rem;
+    transition: all .4s;
 }
 .btn-teaser-1 {
     background-color: $color-bg-image-1;
     color: $color-dark-1;
 }
+.btn-teaser-1:hover {
+    color: lighten($color-dark-1, 10%);
+    background-color: lighten($color-bg-image-1, 10%);
+}
 .btn-teaser-2 {
     background-color: $color-bg-image-2;
     color: $color-dark-2;
 }
+.btn-teaser-2:hover {
+    color: lighten($color-dark-2, 10%);
+    background-color: lighten($color-bg-image-2, 10%);
+}
 .btn-teaser-3 {
     background-color: $color-bg-image-3;
     color: $color-dark-3;
+}
+.btn-teaser-3:hover {
+    color: lighten($color-dark-3, 10%);
+    background-color: lighten($color-bg-image-3, 10%);
 }

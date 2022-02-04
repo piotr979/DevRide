@@ -27,8 +27,8 @@
     <body>
     <div class="wrapper admin-page">
 <aside class="admin-aside">
-<a class="mt-1" href="{{ path('articles') }}" >Home page</a>
-<a class="mt-1" href="{{ path('new-article') }}" >New article</a>
+<a class="mt-1 {% if app.request.attributes.get('_route') == 'articles' %} link-active {% endif %}" href="{{ path('articles') }}" >Home page</a>
+<a class="mt-1 {% if app.request.attributes.get('_route') == 'new-article' %} link-active {% endif %}" href="{{ path('articles') }}" href="{{ path('new-article') }}" >New article</a>
 <a class="mt-1" href="{{ path('logout') }}">Log out</a>
 </aside>
 <main class="admin-main">

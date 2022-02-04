@@ -1,0 +1,15 @@
+#article_categories {
+    width: 15rem;
+    height: 6rem;
+}
+#article_categories option {
+    padding: .3rem 0rem;
+}
+#article_icon, #article_categories {
+    background-color: $c-shade-1;
+    border: 1px solid $c-tint-1;
+}
+.articles-list {
+    border: 1px solid $c-tint-2;
+    margin-top: 1rem;
+}

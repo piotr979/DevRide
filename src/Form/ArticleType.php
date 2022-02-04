@@ -3,18 +3,30 @@
 namespace App\Form;
 
 use App\Entity\Article;
+use App\Repository\CategoryRepository;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use App\Entity\Category;
 class ArticleType extends AbstractType
 {
+    private CategoryRepository $categoryRepo;
+    private Article $article;
+
+    public function __construct(CategoryRepository $categoryRepo) 
+    {
+        $this->categoryRepo = $categoryRepo;
+        $this->article = new Article();
+    }
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $this->buildIconListFromFilenames();exit;
+      
         $builder
             ->add('title', TextType::class, [
                 'attr' => [
@@ -25,11 +37,14 @@ class ArticleType extends AbstractType
                     'class' => 'article-form__input'
                 ]
             ])
+            ->add('categories', EntityType:: class, [
+                'data' => $this->article->getCategories(),
+                'class' => Category::class,
+                'choice_label' => 'name',
+                'multiple' => true
+            ])
             ->add('icon', ChoiceType::class, [
-                'choices' => [
-                    'basic' => 0,
-                    'second' => 1
-                ],
+                'choices' => $this->buildIconListFromFilenames(),
                 'attr' => [
                     'class' => 'article-form__input'
                 ]
@@ -44,17 +59,32 @@ class ArticleType extends AbstractType
             ])
         ;
     }
-
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'data_class' => Article::class,
         ]);
     }
-    private function buildIconListFromFilenames()
+    private function buildIconListFromFilenames(): array
     {
-        $files = array_diff(scandir('images/article_icons'), ['..','.']);
+        // get rid of dots
+        $files = array_diff(scandir('images/article_icons/color'), ['..','.']);
 
-        dump($files);
+        // remove extensions
+        $filesWithoutExtension = array_map( function($file) {
+            return pathinfo($file, PATHINFO_FILENAME);
+        }, $files);
+
+        // replace dashes and underscoures
+        $filenamesFiltered = str_replace(['_','-'], ' ',$filesWithoutExtension);
+
+        // combine arrays
+        return array_combine($filenamesFiltered, $files);
+    }
+    private function getCategories()
+    {
+
+        $result = array_map('current', $this->categoryRepo->getAllCategoriesStripped());
+        return array_flip($result);
     }
 }

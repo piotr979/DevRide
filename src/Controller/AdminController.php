@@ -22,8 +22,10 @@ class AdminController extends AbstractController
     #[Route('/', name: 'articles')]
     public function index(): Response
     {
-       $em = $this->doctrine->getRepository(Article::class)->findAll();
-        return $this->render('admin/articles.html.twig');
+       $articles = $this->doctrine->getRepository(Article::class)->findAll();
+        return $this->render('admin/articles.html.twig', [
+            'articles' => $articles
+        ]);
     }
 
     #[Route('/new-article', name: 'new-article')]
@@ -34,7 +36,12 @@ class AdminController extends AbstractController
         $form->handleRequest($request);
         
         if ($form->isSubmitted() && $form->isValid()) {
-            dump($form);exit;
+            $em = $this->doctrine->getManager();
+            $em->persist($article);
+            $em->flush();
+
+            $this->addFlash('notice','Your article has been saved');
+            return $this->redirectToRoute('articles');
         }
         return $this->render('admin/new-article.html.twig', [
             'form' => $form->createView()
@@ -42,13 +49,30 @@ class AdminController extends AbstractController
     }
 
     #[Route('/edit-article/{id}', name: 'edit-article')]
-    public function editArticle($id): Response
+    public function editArticle($id, Request $request, ManagerRegistry $doctrine): Response
     {
-        $article = $this->doctrine->getRepository(Article::class)->find($id);
-        $form = $this->createForm(Article::class, $article);
+        $article = $doctrine->getRepository(Article::class)->find($id);
+        $form = $this->createForm(ArticleType::class, $article);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+           $em = $doctrine->getManager();
+           $em->persist($article);
+           $em->flush();
+           return $this->redirectToRoute('articles');
+        }
         return $this->render('admin/edit-article.html.twig', [
             'form' => $form->createView()
         ]);
+    }
+    #[Route('/article-delete/{id}', name: 'article-delete')]
+    public function articleDelete($id)
+    {
+        $article = $this->doctrine->getRepository(Article::class)->find($id);
+        $em = $this->doctrine->getManager();
+        $em->remove($article);
+        $em->flush();
+        $this->addFlash('notice','Item has been removed.');
+        return $this->redirectToRoute('articles');
     }
 
 }
