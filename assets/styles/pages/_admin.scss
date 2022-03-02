@@ -3,26 +3,22 @@
     grid-template-columns: 10rem 1fr;
     color: white;
 }
-
-.admin-aside {
-    grid-column: 1/2;
-    display: fixed;
-    color: $c-tint-3;
+.admin-main {
+    grid-column: 2/3;
+    color: $c-tint-4;
 }
 .admin-aside a {
     display: block;
 }
-.admin-aside__active  {
-    color: white;
-}
-.admin-main {
-    grid-column: 2/3;
-}
-
 #article div label {
     display: block;
+    color: $c-tint-4;
 }
 .article-form__input {
     border: 1px solid $c-tint-3;
+    background-color: $c-primary;
     margin: .5rem 0 1rem 0;
+    padding: .5rem .5rem;
+    color: white;
 }
+

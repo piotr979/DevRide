@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\Article;
+use App\Entity\Category;
 use App\Form\ArticleType;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -62,6 +63,14 @@ class AdminController extends AbstractController
         }
         return $this->render('admin/edit-article.html.twig', [
             'form' => $form->createView()
+        ]);
+    }
+    #[Route('/categories', name: 'categories')]
+    public function categories()
+    {
+        $categories = $this->doctrine->getRepository(Category::class)->findAll();
+        return $this->render('admin/categories.html.twig', [
+            'categories' => $categories
         ]);
     }
 

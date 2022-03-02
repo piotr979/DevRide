@@ -19,21 +19,17 @@
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
 
+
         {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
        <script src="https://cdn.tiny.cloud/1/l8uwbak1mjxo895bp92fo6cr1d2uqmjo4lxqwp0dt9cwjjku/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-       
         {% endblock %}
     </head>
     <body>
-<div class="container">
-<div class=" " id="nav-parent">
-    <header class="wrapper header--dark justify-end backgrounds-styling">
-       
-    </header> 
-</div>
-</div>
-
+    <div class="wrapper admin-page">
+    <button class="btn-mobile-nav">
+            <img class="open-mobile-nav icon-mobile-nav" src="/../images/nav/hamburger.svg" alt="Open mobile menu">
+            <img class="close-mobile-nav icon-mobile-nav" src="/../images/nav/close_big.svg" alt="Close mobile menu">
+        </button>
 <input type="checkbox" class="navigator-checkbox" id="navigator-check">
 
 <label for="navigator-check">
@@ -44,30 +40,17 @@
       
 </label>
 
-<div id="navigator-sidebar" class="navigator-sidebar">
-    
-    <div class="sidebar-wrapper">
-        <div class="logo" >
-            <img class="logo-icon logo-icon--shining" src="/../images/nav/ring-ship.svg" alt="ship with ring icon">
-            <img src="/../images/logo_for_dark.svg" alt="">
-            </div>
-[       <aside class="admin-aside">
+<aside class="admin-aside">
 <a class="mt-1 {% if app.request.attributes.get('_route') == 'articles' %} link-active {% endif %}" href="{{ path('articles') }}" >Home page</a>
 <a class="mt-1 {% if app.request.attributes.get('_route') == 'new-article' %} link-active {% endif %}" href="{{ path('new-article') }}" >New article</a>
 <a class="mt-1 {% if app.request.attributes.get('_route') == 'categories' %} link-active {% endif %}" href="{{ path('categories') }}" >Categories</a>
-<a class="mt-2 link-standout" href="{{ path('main')}}">Switch to front</a>
-<a class="mt-1 link-standout" href="{{ path('logout') }}">Log out</a>
+<a class="mt-1" href="{{ path('logout') }}">Log out</a>
 </aside>
-    </div>
-</div>
-<div class="navigator-text--container">
-    <div class="navigator-sidebar--dummy">
-    </div>
-   
-       <main class="admin-main">
+<main class="admin-main">
 
         {% block body %}{% endblock %}
 
 </main>
-    </div>
 </div>
+    </body>
+</html>

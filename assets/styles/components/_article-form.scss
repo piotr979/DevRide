@@ -1,6 +1,10 @@
+#article div button {
+    margin-top: 1rem;
+}
 #article_categories {
     width: 15rem;
     height: 6rem;
+    margin-bottom: 1rem;
 }
 #article_categories option {
     padding: .3rem 0rem;
@@ -8,8 +12,18 @@
 #article_icon, #article_categories {
     background-color: $c-shade-1;
     border: 1px solid $c-tint-1;
+    color: white;
 }
 .articles-list {
     border: 1px solid $c-tint-2;
     margin-top: 1rem;
+}
+.articles-list thead {
+    background-color: $c-tint-1;
+}
+.articles-list thead tr td { 
+    padding-left: 1rem;
+}
+.articles-list tbody tr td {
+    padding: 1rem;
 }

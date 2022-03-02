@@ -1,5 +1,4 @@
-
-.btn, .btn-admin {
+.btn {
 border-radius: 5px;
 font-family: $h-font;
 text-transform: uppercase;
@@ -7,20 +6,25 @@ font-size: 1.6rem;
 letter-spacing: 0;
 text-align: center;
 cursor: pointer;
+padding: 0.7rem 1rem;
+border: 0;
 }
-.btn {
-    padding: 0.7rem 1rem;
+a.btn-admin,
+button.btn-admin {
+    padding: .5rem 1.4rem;
+    border: 0;
 }
-.btn-admin {
-    padding: 0rem 1.4rem;
-    margin: 1rem 0;
-
-}
-.btn-admin__primary {
+a.btn-admin__primary,
+button.btn-admin__primary {
     background: #1f5485;
     color: #BCCEE7;
 }
-.btn-primary {
+a.btn-admin__secondary
+button.btn-admin__secondary {
+    background: $c-fourth;
+    color: #BCCEE7;
+}
+a.btn-primary {
     background: #5C2C69;
     color: #BCCEE7;
 }

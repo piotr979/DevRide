@@ -39,7 +39,7 @@
 @include spacingGenerator(padding, bottom, b);
 
 body {
-  background-color: $c-primary;
+  background-color: $c-shade-2;
 }
 .txt-center {
   margin-left: auto;
@@ -52,7 +52,6 @@ body {
 .txt-right {
   text-align: right;
 }
-
 .p-relative {
   position: relative;
 }
@@ -77,5 +76,5 @@ body {
   }
   100% {
     transform: rotate(360deg);
-}
+  }
 }

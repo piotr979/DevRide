@@ -5,6 +5,14 @@
 .login-form__wrapper input {
     border: 1px solid $c-tint-1;
     margin-top: .6rem;
+    background-color: $c-primary;
+    height: 2rem;
+    filter: none;
+}
+.login-form__wrapper input:autofill,
+.login-form__wrapper input:-webkit-autofill  {
+    background: $c-primary;
+    background-color: $c-primary;
 }
 .login-form__wrapper button {
     width: 7rem;

@@ -4,10 +4,11 @@
 console.log("test");
   const btnNav = document.querySelector(".btn-mobile-nav");
   const navParent = document.getElementById('nav-parent');
+  if (btnNav != null) {
   btnNav.addEventListener("click", function () {
     navParent.classList.toggle("nav-open");
   });
-
+  }
 
   /* CHAPTER NAVIGATOR 
   */
