@@ -9,6 +9,7 @@ use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\Article;
 use App\Entity\Category;
 use App\Form\ArticleType;
+use App\Form\CategoryType;
 use Symfony\Component\HttpFoundation\Request;
 
 #[Route('admin')]
@@ -66,14 +67,33 @@ class AdminController extends AbstractController
         ]);
     }
     #[Route('/categories', name: 'categories')]
-    public function categories()
+    public function categories(Request $request)
     {
         $categories = $this->doctrine->getRepository(Category::class)->findAll();
+        $category = new Category();
+        $form = $this->createForm(CategoryType::class, $category);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->doctrine->getManager();
+            $em->persist($category);
+            $em->flush();
+            return $this->redirectToRoute('categories');
+        }
         return $this->render('admin/categories.html.twig', [
-            'categories' => $categories
+            'categories' => $categories,
+            'catForm' => $form->createView()
         ]);
     }
-
+    #[Route('/category-save/{id}/{name}', name: 'category-save')]
+    public function categorySave($id, $name = "nothing")
+    {
+       $category = $this->doctrine->getRepository(Category::class)->find($id);
+       $category->setName($name);
+       $em = $this->doctrine->getManager();
+       $em->persist($category);
+       $em->flush();
+       return $this->redirectToRoute('categories');
+    }
     #[Route('/article-delete/{id}', name: 'article-delete')]
     public function articleDelete($id)
     {
@@ -84,7 +104,16 @@ class AdminController extends AbstractController
         $this->addFlash('notice','Item has been removed.');
         return $this->redirectToRoute('articles');
     }
-
+    #[Route('/category-delete/{id}', name: 'category-delete')]
+    public function categoryDelete($id)
+    {
+        $category = $this->doctrine->getRepository(Category::class)->find($id);
+        $em = $this->doctrine->getManager();
+        $em->remove($category);
+        $em->flush();
+        $this->addFlash('notice','Item has been removed.');
+        return $this->redirectToRoute('categories');
+    }
     #[Route('/website-settings', name: 'website-settings')]
     public function websiteSettings()
     {

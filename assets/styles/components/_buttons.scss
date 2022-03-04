@@ -9,21 +9,35 @@ cursor: pointer;
 padding: 0.7rem 1rem;
 border: 0;
 }
+
 a.btn-admin,
 button.btn-admin {
     padding: .5rem 1.4rem;
     border: 0;
+    font-family: $p-font;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: .4s all;
 }
 a.btn-admin__primary,
 button.btn-admin__primary {
     background: #1f5485;
     color: #BCCEE7;
 }
-a.btn-admin__secondary
+a.btn-admin__primary:hover,
+button.btn-admin__primary:hover {
+    background: lighten(#1f5485, 10%);
+}
+a.btn-admin__secondary,
 button.btn-admin__secondary {
     background: $c-fourth;
     color: #BCCEE7;
 }
+a.btn-admin__secondary:hover,
+button.btn-admin__secondary:hover {
+    background: lighten($c-fourth, 10%);
+}
+
 a.btn-primary {
     background: #5C2C69;
     color: #BCCEE7;

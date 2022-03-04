@@ -1,0 +1,27 @@
+.categories-table {
+    margin-top: 2rem;
+    border: 1px solid $c-tint-3;
+
+    border-collapse: collapse;
+    overflow-x: auto;
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+
+    border-collapse: collapse;
+}
+.categories-table thead {
+    background-color: $c-tint-1;
+    color: white;
+}
+.categories-table tbody tr td {
+    padding: .5rem 1rem;
+    white-space: nowrap;
+}
+td:first-of-type, th:first-of-type {
+    border-left: none;
+  }
+  
+  td:last-of-type, th:last-of-type {
+    border-right: none;
+  }

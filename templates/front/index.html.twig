@@ -103,7 +103,7 @@
             <h3>{{ article.title }}</h3>
             <p>Added on: {{ article.createdAt|date("D/m/Y") }}</p>
             <small class="teaser--category">
-                Category: PHP
+                Category: {{ article.category }}
             </small>
         </div>
         <div class="teaser-bottom">
