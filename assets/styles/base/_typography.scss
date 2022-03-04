@@ -13,10 +13,6 @@ body {
 p {
    color: $c-gray-4; 
 }
-a:link,
-a:visited {
-     color: $c-gray-1;
-}
 h1, h2, h3, h4, h5 {
  // margin: 3rem 0 1.38rem;
   font-family: $h-font, sans-serif;
@@ -78,7 +74,7 @@ small, .text_small {font-size: 0.8rem;}
      padding-bottom: 2em;
 }
 a.link-active {
-     color: white;
+     color: white !important;
 }
 a.link-standout {
      color: $c-tint-3;
