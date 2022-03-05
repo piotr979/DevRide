@@ -28,4 +28,6 @@
 .admin-aside a:visited {
      color: $c-gray-1;
 }
-
+.tox-tinymce {
+    z-index: 0 !important;
+}

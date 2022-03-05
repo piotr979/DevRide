@@ -1,5 +1,5 @@
-#article div button {
-    margin-top: 1rem;
+#article_save {
+    margin: 1rem 0rem;
 }
 #article_categories {
     width: 15rem;
@@ -7,16 +7,18 @@
     margin-bottom: 1rem;
 }
 #article_categories option {
-    padding: .3rem 0rem;
+    padding: .3rem 0 .3rem .5rem;
 }
 #article_icon, #article_categories {
     background-color: $c-shade-1;
     border: 1px solid $c-tint-1;
     color: white;
+    z-index: 0;
 }
 .articles-list {
     border: 1px solid $c-tint-2;
     margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 .articles-list thead {
     background-color: $c-tint-1;

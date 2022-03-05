@@ -54,7 +54,9 @@ class AdminController extends AbstractController
     public function editArticle($id, Request $request, ManagerRegistry $doctrine): Response
     {
         $article = $doctrine->getRepository(Article::class)->find($id);
-        $form = $this->createForm(ArticleType::class, $article);
+        $form = $this->createForm(ArticleType::class, $article, [
+            'id' => $id
+        ]);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
            $em = $doctrine->getManager();

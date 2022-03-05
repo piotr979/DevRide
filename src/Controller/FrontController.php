@@ -20,7 +20,7 @@ class FrontController extends AbstractController
     public function index(): Response
     {
         $articles = $this->doctrine->getRepository(Article::class)->findAll();
-        
+        //dump($articles);
         return $this->render('front/index.html.twig', [
             'articles' => $articles
         ]);

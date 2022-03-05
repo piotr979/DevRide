@@ -10,7 +10,7 @@
    ">
         <div class="logo" >
         <img class="logo-icon" src="images/nav/ring-ship.svg" alt="ship with ring icon">
-        <img src="images/logo_improved.svg" alt="">
+        <img src="images/logo.svg" alt="">
         </div>
         <nav class="top-nav">
             
@@ -34,10 +34,7 @@
                 </a>
                 {% if is_granted("IS_AUTHENTICATED_FULLY") %}
                  <a href="{{ path('articles') }}" class="top-nav__list-anchor">
-                    <li class="dark-nav__list-item">Admin</li>
-                </a>
-                 <a href="{{ path('logout') }}" class="top-nav__list-anchor">
-                    <li class="dark-nav__list-item">Log out</li>
+                    <li class="dark-nav__list-item admin-link">Go to admin</li>
                 </a>
                 {% endif %}
             </ul>
@@ -138,10 +135,11 @@
     <!-- SMALL TEASER STARTS HERE -->
     <div class="small-teaser">
         <img class="small-teaser--image-1" src="images/article_icons/black_white/c-1-alien.svg" alt="alien character from space" >
-    <h3>Zmienne w PHP</h3>
-    <p class="pb-2">Podstawy programowania w PHP część 3</p>
+    {% set php = articles.1 %}
+    <h3>{{ php.title }} </h3>
+    <p class="pb-2">{{ php.subtitle|slice(0,33) }}</p>
     <div class="btn-teaser-wrapper">
-    <a class="btn btn-teaser-1 mb-2" href="">Read now</a>
+    <a class="btn btn-teaser-1 mb-2" href="{{ path('article-read', { id: 3 } ) }}">Read now</a>
 </div>
     </div>
      <!-- SMALL TEASER ENDS HERE -->
@@ -149,10 +147,11 @@
       <!-- SMALL TEASER STARTS HERE -->
     <div class="small-teaser">
         <img class="small-teaser--image-2" src="images/article_icons/black_white/c-2-pluto.svg" alt="alien character from space" >
-    <h3>Zmienne w PHP</h3>
-    <p class="pb-2">Podstawy programowania w PHP część 3</p>
+    {% set wordpress = articles.5 %}
+    <h3>{{ wordpress.title }} </h3>
+    <p class="pb-2">{{ wordpress.subtitle|slice(0,33) }}...</p>
     <div class="btn-teaser-wrapper">
-    <a class="btn btn-teaser-2 mb-2" href="">Read now</a>
+    <a class="btn btn-teaser-2 mb-2" href="{{ path('article-read', { id: 7 } ) }}">Read now</a>
 </div>
 </div>
    
@@ -161,10 +160,11 @@
       <!-- SMALL TEASER STARTS HERE -->
     <div class="small-teaser">
         <img class="small-teaser--image-3" src="images/article_icons/black_white/c-3-atronaut.svg" alt="alien character from space" >
-    <h3>Zmienne w PHP</h3>
-    <p class="pb-2">Podstawy programowania w PHP część 3</p>
+    {% set symfony = articles.5 %}
+    <h3>{{ symfony.title }} </h3>
+    <p class="pb-2">{{ symfony.subtitle|slice(0,33) }}...</p>
     <div class="btn-teaser-wrapper">
-    <a class="btn btn-teaser-3 mb-2" href="">Read now</a>
+    <a class="btn btn-teaser-3 mb-2" href="href="{{ path('article-read', { id: 7 } ) }}">Read now</a>
 </div>
     </div>
      <!-- SMALL TEASER ENDS HERE -->
@@ -175,60 +175,35 @@
 <section class="wrapper  with-aside">
     <div class="chapter">
  
-     <!-- ARTICLE STARTS HERE -->
-     <article class="teaser mt-6">
-         <img class="teaser--image__under under-right" src="images/article_icons/black_white/alien-ship.svg" alt="image under article teaser">
-         <a class="teaser--anchor" href="#">
-             <div class="teaser--wrapper">
-         <div class="teaser--logo">
-             <img src="images/article_icons/alien-ship.svg" alt="article logo">
-         </div>
-         <div class="teaser--title">
-         
-             <h3>10 nowości PHP 8.1, które warto znać</h3>
-             <p>Dodano: 04.09.2021</p>
-             <small class="teaser--category">
-                 Kategoria: PHP
-             </small>
-         </div>
-         <div class="teaser-bottom">
-             <p>Ciekawy artykuł o nowościach w PHP 8.1 (po angielsku). Link do treści w artykule.</p>
-         </div>
-     </div>
-     </a>
-     </article>
- 
-     <!-- ARTICLE ENDS HERE -->
- 
-    
- 
-     <!-- ARTICLE ENDS HERE -->
- 
       <!-- ARTICLE STARTS HERE -->
-      <article class="teaser mt-6">
-         <img class="teaser--image__under under-right" src="images/article_icons/black_white/falling-star.svg" alt="image under article teaser">
-         <a class="teaser--anchor" href="#">
-             <div class="teaser--wrapper">
-         <div class="teaser--logo">
-             <img src="images/article_icons/falling-star.svg" alt="article logo">
-         </div>
-         <div class="teaser--title">
-         
-             <h3>10 nowości PHP 8.1, które warto znać</h3>
-             <p>Dodano: 04.09.2021</p>
-             <small class="teaser--category">
-                 Kategoria: PHP
-             </small>
-         </div>
-         <div class="teaser-bottom">
-             <p>Ciekawy artykuł o nowościach w PHP 8.1 (po angielsku). Link do treści w artykule.</p>
-         </div>
-     </div>
-     </a>
-     </article>
- 
-     <!-- ARTICLE ENDS HERE -->
- 
+    {% for article in articles|slice(3,5) %}
+    <article class="teaser mt-6">
+        <img class="teaser--image__under under-right" src="images/article_icons/black_white/alien-ship.svg" alt="image under article teaser">
+        <a class="teaser--anchor" href="{{ path('article-read', {'id': article.id }) }}">
+            <div class="teaser--wrapper">
+        <div class="teaser--logo">
+            <img src="images/article_icons/color/{{ article.icon }}" alt="article logo">
+        </div>
+        <div class="teaser--title">
+        
+            <h3>{{ article.title }}</h3>
+            <p>Added on: {{ article.createdAt|date("D/m/Y") }}</p>
+            <small class="teaser--category">
+                Category: {% for category in article.categories %}
+                {{ category }}
+                {% endfor %}
+            </small>
+        </div>
+        <div class="teaser-bottom">
+            <p>{{ article.subtitle }}</p>
+        </div>
+    </div>
+    </a>
+    </article>
+    {% endfor %}
+    <!-- ARTICLE ENDS HERE -->
+    
+
  </div>
  <aside class="chapter-aside">
      <div class="aboutme-card pb-2">
@@ -247,7 +222,7 @@
 <div class="container bg-light ">
 <footer class="wrapper articles-bottom">
   <div>
-      <img class="footer--image__logo" src="images/logo.svg" alt="devRide logo">
+      <img class="footer--image__logo" src="images/logo-footer.svg" alt="devRide logo">
       <a href=""><small>www.github.com/piotr979</small></a>
   </div>
   <div class="footer--middle">

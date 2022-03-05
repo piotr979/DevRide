@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Article;
 use App\Repository\CategoryRepository;
+use App\Repository\ArticleRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
@@ -17,16 +18,22 @@ use App\Entity\Category;
 class ArticleType extends AbstractType
 {
     private CategoryRepository $categoryRepo;
+    private ArticleRepository $articleRepo;
     private Article $article;
 
-    public function __construct(CategoryRepository $categoryRepo) 
+    public function __construct(ArticleRepository $articleRepo, CategoryRepository $categoryRepo) 
     {
         $this->categoryRepo = $categoryRepo;
-        $this->article = new Article();
+        $this->articleRepo = $articleRepo;
+     
     }
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-      
+        $article = new Article();
+        if ($options['id'] != null) {
+            $article = $this->articleRepo->find($options['id']);
+        }
+
         $builder
             ->add('title', TextType::class, [
                 'attr' => [
@@ -37,8 +44,8 @@ class ArticleType extends AbstractType
                     'class' => 'article-form__input'
                 ]
             ])
-            ->add('categories', EntityType:: class, [
-                'data' => $this->article->getCategories(),
+            ->add('categories', EntityType::class, [
+                'data' => $article->getCategories(),
                 'class' => Category::class,
                 'choice_label' => 'name',
                 'multiple' => true
@@ -58,12 +65,6 @@ class ArticleType extends AbstractType
                 ]
             ])
         ;
-    }
-    public function configureOptions(OptionsResolver $resolver): void
-    {
-        $resolver->setDefaults([
-            'data_class' => Article::class,
-        ]);
     }
     private function buildIconListFromFilenames(): array
     {
@@ -86,5 +87,13 @@ class ArticleType extends AbstractType
 
         $result = array_map('current', $this->categoryRepo->getAllCategoriesStripped());
         return array_flip($result);
+    }
+
+    public function configureOptions(OptionsResolver $resolver): void
+    {
+        $resolver->setDefaults([
+            'data_class' => Article::class,
+            'id' => null
+        ]);
     }
 }
