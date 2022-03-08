@@ -45,30 +45,31 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 *  it's based on:
 *  https://stackoverflow.com/a/46438472/1496972 
 */
-if (window.matchMedia('(min-width: 80em)').matches) {
-    document.getElementById('navigator-check').checked = true;   
-  
-}
-window.addEventListener('resize', function() {
-  
-    if (window.matchMedia('(max-width: 80em)').matches) {
-        if (document.body.contains('navigator-check')) {
-        document.getElementById('navigator-check').checked = false;
+    const navCheck = document.getElementById('navigator-check') || false;
+    if (navCheck != false) {
+        if (window.matchMedia('(min-width: 80em)').matches) {
+            document.getElementById('navigator-check').checked = true;   
+          
         }
-        console.log("checked false");
-    } else {
-        document.getElementById('navigator-check').checked = true;
-        console.log("checked true");
+        window.addEventListener('resize', function() {
+  
+            if (window.matchMedia('(max-width: 80em)').matches) {
+                document.getElementById('navigator-check').checked = false;
+                console.log("checked false");
+            } else {
+                document.getElementById('navigator-check').checked = true;
+                console.log("checked true");
+            }
+        }, true);
+
+
     }
-}, true);
 
 
 /*
 *  Modal window
 */
 
-
-console.log("testujemy00");
 // Get the modal
 var modal = document.getElementById("modal");
 

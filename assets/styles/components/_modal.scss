@@ -19,6 +19,9 @@
     padding: 20px;
     width: 20rem;
     animation-name: animatetop;
+    position: relative;
+    top: 20%;
+    transform: translate(0, -50%);
     animation-duration: 0.8s
 }
 .modal-content form input {
@@ -30,7 +33,7 @@
 }
 
 @keyframes animatetop {
-    from {opacity: 0}
-    to {top: 0; opacity: 1}
+    from {top: 17%; opacity: 0}
+    to {top: 20%; opacity: 1}
   }
 

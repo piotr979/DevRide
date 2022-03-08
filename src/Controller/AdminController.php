@@ -11,6 +11,7 @@ use App\Entity\Category;
 use App\Form\ArticleType;
 use App\Form\CategoryType;
 use Symfony\Component\HttpFoundation\Request;
+use App\Services\TinyMCEProcessor;
 
 #[Route('admin')]
 class AdminController extends AbstractController
@@ -38,7 +39,11 @@ class AdminController extends AbstractController
         $form->handleRequest($request);
         
         if ($form->isSubmitted() && $form->isValid()) {
+
             $em = $this->doctrine->getManager();
+
+            // converts all <chapter> tags to navigator chapters
+            $article->setContent(TinyMCEProcessor::convertToChapter($article->getContent()));
             $em->persist($article);
             $em->flush();
 
@@ -60,6 +65,7 @@ class AdminController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
            $em = $doctrine->getManager();
+           $article->setContent(TinyMCEProcessor::convertToChapter($article->getContent()));
            $em->persist($article);
            $em->flush();
            return $this->redirectToRoute('articles');

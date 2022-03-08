@@ -18,6 +18,10 @@
     background-color: $c-fifth;
     clip-path: polygon(0% 0%, 100% 0%, 100% 65%,  75% 100%, 50% 60%, 20% 90%, 0% 100%);
 }
+.contact-form #contact textarea {
+  width: 30rem;
+}
+
 .backgrounds-styling {
   background-size: 18rem 18rem, 10rem 10rem, 14rem 14rem;
 }

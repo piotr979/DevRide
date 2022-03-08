@@ -7,6 +7,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Article;
+use App\Form\ContactType;
+use Symfony\Component\HttpFoundation\Request;
 
 class FrontController extends AbstractController
 {
@@ -16,6 +18,11 @@ class FrontController extends AbstractController
     {
         $this->doctrine = $doctrine;
     }
+
+    /* *********************
+    ** MAIN PAGE
+    ************************/
+
     #[Route('/', name: 'main')]
     public function index(): Response
     {
@@ -26,11 +33,26 @@ class FrontController extends AbstractController
         ]);
     }
 
-    #[Route('/phpbasics', name: 'phpbasics')]
-    public function phpbasics(): Response
+    /* *********************
+    ** CONTACT
+    ************************/
+
+    #[Route('/contact', name: 'contact')]
+    public function contact(Request $request)
     {
-        return $this->render('front/phpbasics.html.twig');
+        $form = $this->createForm(ContactType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $contact = $form->getData();
+        }
+        return $this->render('front/contact.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
+
+     /* *********************
+    ** READING ARTICLE (DARKER PAGE)
+    ************************/
 
     #[Route('/article-read/{id}', name: 'article-read')]
     public function articleRead($id)
@@ -40,5 +62,20 @@ class FrontController extends AbstractController
             'article' => $article
         ]);
     }
+
+      /* *********************
+    ** DISPLAY ARTICLES BY CATEGORY 
+    ************************/
+
+    #[Route('/articles-category/{category}', name: 'articles-category')]
+    public function articlesByCategory($category)
+    {
+        $articles = $this->doctrine->getRepository(Article::class)->findByCategory($category);
+        return $this->render('front/articles-by-category.html.twig', [
+            'articles' => $articles,
+            'category' => $category
+        ]);
+    }
+
 
 }
