@@ -21,25 +21,7 @@
                 <img class="peaks-footer" src="images/peaks-footer-with-background.svg" alt="">
                 </div>
          
-            <ul class="top-nav__list">
-                <a href="{{ path('main') }} " class="top-nav__list-anchor">
-                    <li class="dark-nav__list-item">Home</li>
-                </a>
-                <a href="{{ path('contact') }}" class="top-nav__list-anchor">
-                    <li class="dark-nav__list-item">Learn PHP</li>
-                </a>
-                <a href="{{ path('articles-category', { "category": "Symfony" }) }}" class="top-nav__list-anchor">
-                    <li class="dark-nav__list-item">Symfony</li>
-                </a>
-                <a href="{{ path('contact') }}" class="top-nav__list-anchor">
-                    <li class="dark-nav__list-item">Contact</li>
-                </a>
-                {% if is_granted("IS_AUTHENTICATED_FULLY") %}
-                 <a href="{{ path('articles') }}" class="top-nav__list-anchor">
-                    <li class="dark-nav__list-item admin-link">Go to admin</li>
-                </a>
-                {% endif %}
-            </ul>
+        {{ include('front/components/nav-menu.html.twig') }}
             
         </nav>
         <button class="btn-mobile-nav">

@@ -38,7 +38,7 @@ button.btn-admin__secondary:hover {
     background: lighten($c-fourth, 10%);
 }
 
-a.btn-primary {
+button.btn-primary, a.btn-primary {
     background: #5C2C69;
     color: #BCCEE7;
 }
