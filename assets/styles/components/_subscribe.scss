@@ -1,0 +1,37 @@
+#subscribe-float {
+    background-color: rgba(0,0,0,0.4);
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+}
+
+.subscribe-modal {
+    display: flex;
+    padding: 1rem 2rem;
+    text-align: center;
+    border-radius: 10px;
+    flex-direction: column;
+    width: 80%;
+    z-index: 1000;
+    background-color: $c-background-light;
+    color: $c-gray-1;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: .4s all;
+    animation-name: animatedown;
+    animation-duration: .8s;
+}
+.subscribe-modal label, .subscribe-modal h3 {
+    display: block;
+}
+.subscribe-modal input, .subscribe-modal textarea {
+    height: 1.5rem;
+    background-color: #bbb895;
+    border: 1px solid $c-gray-2;
+}

@@ -81,11 +81,14 @@
         <h3 class="newsletter-card--heading pb-1">Newsletter</h3>
         <p class="newsletter-card--text pb-1">
         The latest articles directly to your email box. Don't miss it out!
+        
         </p>
-        <a href="#" class="btn btn-newsletter">Subscribe</a>
+        <button id="subscribe-button" class="btn btn-newsletter">Subscribe</button>
     </div>
  </aside>
 </section>
+
+{{ include('front/components/subscribe.html.twig') }}
 
 <div class="container bg-light">
 <section class="wrapper small-teasers">
@@ -196,4 +199,8 @@
 
 	
 
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+{{ encore_entry_script_tags('subscribe') }}
 {% endblock %}

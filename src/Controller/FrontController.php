@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Article;
 use App\Form\ContactType;
+use App\Form\SubscribeType;
 use Symfony\Component\HttpFoundation\Request;
 
 class FrontController extends AbstractController
@@ -24,12 +25,18 @@ class FrontController extends AbstractController
     ************************/
 
     #[Route('/', name: 'main')]
-    public function index(): Response
+    public function index(Request $request): Response
     {
         $articles = $this->doctrine->getRepository(Article::class)->findAll();
+        $subscribeForm = $this->createForm(SubscribeType::class);
+        $subscribeForm->handleRequest($request);
+        if ($subscribeForm->isSubmitted() && $subscribeForm->isValid()) {
+            $subscriberData = $subscribeForm->getData();
+        }
         //dump($articles);
         return $this->render('front/index.html.twig', [
-            'articles' => $articles
+            'articles' => $articles,
+            'subscribeForm' => $subscribeForm->createView()
         ]);
     }
 

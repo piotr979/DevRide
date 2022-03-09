@@ -9,8 +9,9 @@
   });
   }
 
-  /* CHAPTER NAVIGATOR 
-  */
+  // *********
+  // CHAPTER NAVIGATOR
+  // **********
 
 const sidebarChapters = document.getElementById('sidebar-chapters');
 const navigatorContent = document.getElementById('navigator-content');
@@ -49,7 +50,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     if (navCheck != false) {
         if (window.matchMedia('(min-width: 80em)').matches) {
             document.getElementById('navigator-check').checked = true;   
-          
         }
         window.addEventListener('resize', function() {
   
@@ -61,65 +61,4 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 console.log("checked true");
             }
         }, true);
-
-
     }
-
-
-/*
-*  Modal window
-*/
-
-// Get the modal
-var modal = document.getElementById("modal");
-
-// Get the button that opens the modal
-let id;
-const actionBtns = document.querySelectorAll(".actionButton");
-const catInput = document.getElementById("category-input");
-const catRows = document.querySelectorAll(".category-row"); 
-
-// Get the <span> element that closes the modal
-const okBtn = document.getElementById('ok-button');
-const cancelBtn = document.getElementById("cancel-button")
-
-okBtn.addEventListener('click', function() {
-    const catName = catInput.value;
-    console.log(catName);
-    if (catName == null || catName == '') {
-        const modalError = document.getElementById('modal-error');
-        modalError.innerText = "Input field is empty";
-        return;
-    } 
-    console.log(catName);
-  
-    location.href = `category-save/${id}/${catName}`;
-
-})
-cancelBtn.addEventListener('click', function() {
-    console.log("Cancel");
-    modal.style.display = "none";
-})
-
-actionBtns.forEach( (button) => 
-        button.addEventListener('click', function(e) {
-            const dataSet = e.target.parentNode.parentNode.dataset;
-            id = dataSet.id;
-            console.log(id);
-            catInput.setAttribute('value', dataSet.category);
-            modal.style.display = "block";
-        
-          
-        }
-    )
-);
-
-// When the user clicks on <span> (x), close the modal
-
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-} 

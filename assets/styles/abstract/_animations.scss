@@ -11,3 +11,12 @@
         transform: scale(0.95);
     }
   }
+
+  @keyframes animatedown {
+    from {top: 47%; opacity: 0}
+    to {top: 50%; opacity: 1}
+  }
+  @keyframes animatetop {
+    from {top: 17%; opacity: 0}
+    to {top: 20%; opacity: 1}
+  }

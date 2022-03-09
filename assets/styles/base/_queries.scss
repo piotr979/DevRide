@@ -5,6 +5,9 @@
   .heading-shadowed {
     font-size: 4.6rem;
   }
+  .subscribe-modal {
+    width: 24rem;
+  }
 }
 @media (min-width: 48em) {
 
@@ -51,8 +54,6 @@
 .peaks-mobile {
   display: none;
 }
-
-  
   .btn-mobile-nav {
     display: none;
   }
@@ -100,9 +101,13 @@
 }
   .heading-text {
     font-size: 3.8rem;
+    text-align: left;
+    padding-bottom: 0;
+    margin: 1rem 0;
   }
   .heading-shadowed {
     font-size: 6.4rem;
+    display: block;
   }
   .teaser--wrapper {
     text-align: left;
