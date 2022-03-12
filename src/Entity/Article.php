@@ -79,7 +79,7 @@ class Article
 
         return $this;
     }
-    
+
     public function getCreatedAt(): ?\DateTimeImmutable
     {
         return $this->createdAt;
@@ -123,7 +123,7 @@ class Article
     // Category helper
     public function setCategories($categories)
     {
-        foreach($categories as $category) {
+        foreach ($categories as $category) {
             $this->addCategory($category);
         }
     }

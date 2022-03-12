@@ -28,8 +28,7 @@ class ContactType extends AbstractType
                 'attr' => [
                     'class' => 'btn btn-teritary mt-2 mb-2'
                 ]
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

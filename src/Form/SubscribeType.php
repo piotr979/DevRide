@@ -15,7 +15,7 @@ class SubscribeType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                    'label' => 'Your name'
+                'label' => 'Your name'
             ])
             ->add('email', EmailType::class, [
                 'label' => 'Your email'

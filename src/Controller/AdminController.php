@@ -25,7 +25,7 @@ class AdminController extends AbstractController
     #[Route('/', name: 'articles')]
     public function index(): Response
     {
-       $articles = $this->doctrine->getRepository(Article::class)->findAll();
+        $articles = $this->doctrine->getRepository(Article::class)->findAll();
         return $this->render('admin/articles.html.twig', [
             'articles' => $articles
         ]);
@@ -37,7 +37,7 @@ class AdminController extends AbstractController
         $article = new Article();
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
-        
+
         if ($form->isSubmitted() && $form->isValid()) {
 
             $em = $this->doctrine->getManager();
@@ -47,7 +47,7 @@ class AdminController extends AbstractController
             $em->persist($article);
             $em->flush();
 
-            $this->addFlash('notice','Your article has been saved');
+            $this->addFlash('notice', 'Your article has been saved');
             return $this->redirectToRoute('articles');
         }
         return $this->render('admin/new-article.html.twig', [
@@ -56,19 +56,17 @@ class AdminController extends AbstractController
     }
 
     #[Route('/edit-article/{id}', name: 'edit-article')]
-    public function editArticle($id, Request $request, ManagerRegistry $doctrine): Response
+    public function editArticle(Article $article, Request $request, ManagerRegistry $doctrine): Response
     {
-        $article = $doctrine->getRepository(Article::class)->find($id);
-        $form = $this->createForm(ArticleType::class, $article, [
-            'id' => $id
-        ]);
+    
+        $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-           $em = $doctrine->getManager();
-           $article->setContent(TinyMCEProcessor::convertToChapter($article->getContent()));
-           $em->persist($article);
-           $em->flush();
-           return $this->redirectToRoute('articles');
+            $em = $doctrine->getManager();
+            $article->setContent(TinyMCEProcessor::convertToChapter($article->getContent()));
+            $em->persist($article);
+            $em->flush();
+            return $this->redirectToRoute('articles');
         }
         return $this->render('admin/edit-article.html.twig', [
             'form' => $form->createView()
@@ -95,12 +93,12 @@ class AdminController extends AbstractController
     #[Route('/category-save/{id}/{name}', name: 'category-save')]
     public function categorySave($id, $name = "nothing")
     {
-       $category = $this->doctrine->getRepository(Category::class)->find($id);
-       $category->setName($name);
-       $em = $this->doctrine->getManager();
-       $em->persist($category);
-       $em->flush();
-       return $this->redirectToRoute('categories');
+        $category = $this->doctrine->getRepository(Category::class)->find($id);
+        $category->setName($name);
+        $em = $this->doctrine->getManager();
+        $em->persist($category);
+        $em->flush();
+        return $this->redirectToRoute('categories');
     }
     #[Route('/article-delete/{id}', name: 'article-delete')]
     public function articleDelete($id)
@@ -109,7 +107,7 @@ class AdminController extends AbstractController
         $em = $this->doctrine->getManager();
         $em->remove($article);
         $em->flush();
-        $this->addFlash('notice','Item has been removed.');
+        $this->addFlash('notice', 'Item has been removed.');
         return $this->redirectToRoute('articles');
     }
     #[Route('/category-delete/{id}', name: 'category-delete')]
@@ -119,7 +117,7 @@ class AdminController extends AbstractController
         $em = $this->doctrine->getManager();
         $em->remove($category);
         $em->flush();
-        $this->addFlash('notice','Item has been removed.');
+        $this->addFlash('notice', 'Item has been removed.');
         return $this->redirectToRoute('categories');
     }
     #[Route('/website-settings', name: 'website-settings')]
@@ -127,5 +125,4 @@ class AdminController extends AbstractController
     {
         return $this->render('admin/website-settings.html.twig');
     }
-
 }

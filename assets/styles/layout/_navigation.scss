@@ -2,7 +2,7 @@
     position: absolute;
     background-color: $c-primary;
     z-index: 10;
-    top:0;
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
@@ -18,10 +18,12 @@
     transition: .4s all ease-in;
     padding-top: 0rem;
 }
+
 .dark-nav__list-item {
     color: $c-text-light;
     padding-bottom: 1rem;
 }
+
 /* Will open menu with when .nav-open class is added to parent (with JS) */
 .nav-open .top-nav {
     opacity: 1;
@@ -29,33 +31,41 @@
     visibility: visible;
     transform: translateX(0);
 }
+
 .top-nav__list {
     flex-direction: column;
     font-size: 1.6rem;
     text-align: center;
     gap: 0;
-} 
+}
+
 .btn-mobile-nav {
     display: block;
     z-index: 10;
 }
+
 .close-mobile-nav {
     display: none;
 }
+
 .icon-mobile-nav {
     width: 24px;
     height: auto;
     cursor: pointer;
 }
+
 .nav-open .close-mobile-nav {
     display: block;
 }
+
 .nav-open .open-mobile-nav {
     display: none;
 }
+
 .peaks-mobile {
     display: block;
 }
+
 .admin-link {
     background-color: #633205;
     padding-left: 1rem;

@@ -22,18 +22,19 @@
 			<input type="password" name="password" id="inputPassword" class="txt-light form-control" autocomplete="current-password" required>
 
 			<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-			   <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
-    <input type="hidden" name="action" value="validate_captcha">
+			<input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+			<input
+			type="hidden" name="action" value="validate_captcha">
 			{#
-			        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-			        See https://symfony.com/doc/current/security/remember_me.html
-			
-			        <div class="checkbox mb-3">
-			            <label>
-			                <input type="checkbox" name="_remember_me"> Remember me
-			            </label>
-			        </div>
-			    #}
+						        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+						        See https://symfony.com/doc/current/security/remember_me.html
+						
+						        <div class="checkbox mb-3">
+						            <label>
+						                <input type="checkbox" name="_remember_me"> Remember me
+						            </label>
+						        </div>
+						    #}
 			{% if error %}
 				<div class="login-form__message">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 			{% endif %}
@@ -49,15 +50,12 @@
 
 	<script src="https://www.google.com/recaptcha/api.js"></script>
 	<script>
-		 grecaptcha.ready(function() {
-    // do request for recaptcha token
-    // response is promise with passed token
-        grecaptcha.execute('6LfEFFgeAAAAAEsoX70Ab5ImMTQlQcWtl6mVivAL', {action:'validate_captcha'})
-                  .then(function(token) {
-            // add token value to form
-            document.getElementById('g-recaptcha-response').value = token;
-        });
-    });
+		grecaptcha.ready(function () {
+// do request for recaptcha token
+// response is promise with passed token
+grecaptcha.execute('6LfEFFgeAAAAAEsoX70Ab5ImMTQlQcWtl6mVivAL', {action: 'validate_captcha'}).then(function (token) { // add token value to form
+document.getElementById('g-recaptcha-response').value = token;
+});
+});
 	</script>
 {% endblock %}
-

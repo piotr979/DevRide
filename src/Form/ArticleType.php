@@ -15,37 +15,30 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use App\Entity\Category;
+
 class ArticleType extends AbstractType
 {
     private CategoryRepository $categoryRepo;
-    private ArticleRepository $articleRepo;
-    private Article $article;
 
-    public function __construct(ArticleRepository $articleRepo, CategoryRepository $categoryRepo) 
+    public function __construct(CategoryRepository $categoryRepo)
     {
         $this->categoryRepo = $categoryRepo;
-        $this->articleRepo = $articleRepo;
-     
     }
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $article = new Article();
-        if ($options['id'] != null) {
-            $article = $this->articleRepo->find($options['id']);
-        }
 
         $builder
             ->add('title', TextType::class, [
                 'attr' => [
-                'class' => 'article-form__input'
-            ]])
+                    'class' => 'article-form__input'
+                ]
+            ])
             ->add('subtitle', TextType::class, [
                 'attr' => [
                     'class' => 'article-form__input'
                 ]
             ])
             ->add('categories', EntityType::class, [
-                'data' => $article->getCategories(),
                 'class' => Category::class,
                 'choice_label' => 'name',
                 'multiple' => true
@@ -63,21 +56,20 @@ class ArticleType extends AbstractType
                 'attr' => [
                     'class' => 'btn-admin btn-admin__primary'
                 ]
-            ])
-        ;
+            ]);
     }
     private function buildIconListFromFilenames(): array
     {
         // get rid of dots
-        $files = array_diff(scandir('images/article_icons/color'), ['..','.']);
+        $files = array_diff(scandir('images/article_icons/color'), ['..', '.']);
 
         // remove extensions
-        $filesWithoutExtension = array_map( function($file) {
+        $filesWithoutExtension = array_map(function ($file) {
             return pathinfo($file, PATHINFO_FILENAME);
         }, $files);
 
         // replace dashes and underscoures
-        $filenamesFiltered = str_replace(['_','-'], ' ',$filesWithoutExtension);
+        $filenamesFiltered = str_replace(['_', '-'], ' ', $filesWithoutExtension);
 
         // combine arrays
         return array_combine($filenamesFiltered, $files);

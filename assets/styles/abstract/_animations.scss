@@ -20,3 +20,18 @@
     from {top: 17%; opacity: 0}
     to {top: 20%; opacity: 1}
   }
+
+  @keyframes rotate-slow {
+    0% {
+      transform: rotate(360deg);
+  
+    }
+  
+    50% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }

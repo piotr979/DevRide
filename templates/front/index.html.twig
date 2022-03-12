@@ -1,206 +1,211 @@
 {% extends 'front/base.html.twig' %}
 
 {% block body %}
-<div class="container bg-light">
-{% include('front/components/header-bright.html.twig') %}
+	<div class="container bg-light">
+		{% include('front/components/header-bright.html.twig') %}
 
-</div>
-<div class="container bg-light pt-5 pb-5 container-hero">
-    <div class="hero-background">
-        <img class="hero--sputnik animate__animated animate__fadeInUp" src="images/nav/bg-hero/sputnick-1.svg" alt="">
-    <img class="hero--star-1 animate__animated animate__fadeInDown" src="images/nav/bg-hero/star.svg" alt="">
-    <img class="hero--star-2 animate__animated animate__fadeInUp" src="images/nav/bg-hero/star.svg" alt="">
-    <div class="hero--sat animate__animated animate__fadeInRight">
-    <img class="hero--sat" src="images/nav/bg-hero/space-dish.svg" alt="">
-</div>
-</div>
-    <div class="wrapper hero">
-        <div class="hero--image-set">
-            <img class="hero--bg-image" src="images/nav/bg-hero/bg-hero-lines.svg" alt="person with Augemented Reality glasses">
-        <img class="hero--image" src="images/general_icons/AR_7.svg" alt="person with Augemented Reality glasses">
-    </div>
-        <div class="hero--motto">
-            <h2 class="pb-1 hero--motto__heading">Find some interesting tutorials</h2>
-                <div class="txt-center">
-            <a id="sub-button" class="actionButton btn btn-teritary" href="#latest">Latest articles</a>
-        </div>
-        </div>
-    </div>
-    
-</div>
-<img class="peaks-hero" src="images/peaks-hero.svg" alt="">
-<div class="container p-relative">
-    <img class="sattelite-in-background" src="images/article_icons/black_white/satellite.svg" alt="image under article teaser">
-</div>
+	</div>
+	<div class="container bg-light pt-5 pb-5 container-hero">
+		<div class="hero-background">
+			<img class="hero--sputnik animate__animated animate__fadeInUp" src="images/nav/bg-hero/sputnick-1.svg" alt="">
+			<img class="hero--star-1 animate__animated animate__fadeInDown" src="images/nav/bg-hero/star.svg" alt="">
+			<img class="hero--star-2 animate__animated animate__fadeInUp" src="images/nav/bg-hero/star.svg" alt="">
+			<div class="hero--sat animate__animated animate__fadeInRight">
+				<img class="hero--sat" src="images/nav/bg-hero/space-dish.svg" alt="">
+			</div>
+		</div>
+		<div class="wrapper hero">
+			<div class="hero--image-set">
+				<img class="hero--bg-image" src="images/nav/bg-hero/bg-hero-lines.svg" alt="person with Augemented Reality glasses">
+				<img class="hero--image" src="images/general_icons/AR_7.svg" alt="person with Augemented Reality glasses">
+			</div>
+			<div class="hero--motto">
+				<h2 class="pb-1 hero--motto__heading">Find some interesting tutorials</h2>
+				<div class="txt-center">
+					<a id="sub-button" class="actionButton btn btn-teritary" href="#latest">Latest articles</a>
+				</div>
+			</div>
+		</div>
 
-<div id="latest" class="heading">
-    <h4 class="heading-text">The latest articles
-        <span class="heading-shadowed">The latest articles</span>
-    </h4>
+	</div>
+	<img class="peaks-hero" src="images/peaks-hero.svg" alt="">
+	<div class="container p-relative">
+		<img class="sattelite-in-background" src="images/article_icons/black_white/satellite.svg" alt="image under article teaser">
+	</div>
 
-</div>
+	<div id="latest" class="heading">
+		<h4 class="heading-text">The latest articles
+			<span class="heading-shadowed">The latest articles</span>
+		</h4>
+	</div>
 
-    
-<section class="wrapper  with-aside">
-   <div class="chapter">
+	<section class="wrapper  with-aside">
+		<div class="chapter">
 
-    <!-- ARTICLE STARTS HERE -->
-    {% for article in articles|slice(0,3) %}
-    <article class="teaser mt-6">
-        <img class="teaser--image__under under-right" src="images/article_icons/black_white/alien-ship.svg" alt="image under article teaser">
-        <a class="teaser--anchor" href="{{ path('article-read', {'id': article.id }) }}">
-            <div class="teaser--wrapper">
-        <div class="teaser--logo">
-            <img src="images/article_icons/color/{{ article.icon }}" alt="article logo">
-        </div>
-        <div class="teaser--title">
-        
-            <h3>{{ article.title }}</h3>
-            <p>Added on: {{ article.createdAt|date("D/m/Y") }}</p>
-            <small class="teaser--category">
-                Category: {% for category in article.categories %}
-                {{ category }}
-                {% endfor %}
-            </small>
-        </div>
-        <div class="teaser-bottom">
-            <p>{{ article.subtitle }}</p>
-        </div>
-    </div>
-    </a>
-    </article>
-    
-    <!-- ARTICLE ENDS HERE -->
-    {% endfor %}
+			<!-- ARTICLE STARTS HERE -->
+			{% for article in articles|slice(0,3) %}
+				<article class="teaser mt-6">
+					<img class="teaser--image__under under-right" src="images/article_icons/black_white/alien-ship.svg" alt="image under article teaser">
+					<a class="teaser--anchor" href="{{ path('article-read', {'id': article.id }) }}">
+						<div class="teaser--wrapper">
+							<div class="teaser--logo">
+								<img src="images/article_icons/color/{{ article.icon }}" alt="article logo">
+							</div>
+							<div class="teaser--title">
+								<h3>{{ article.title }}</h3>
+								<p>Added on:
+									{{ article.createdAt|date("D/m/Y") }}</p>
+								<small class="teaser--category">
+									Category:
+									{% for category in article.categories %}
+										{{ category }}
+									{% endfor %}
+								</small>
+							</div>
+							<div class="teaser-bottom">
+								<p>{{ article.subtitle }}</p>
+							</div>
+						</div>
+					</a>
+				</article>
+
+				<!-- ARTICLE ENDS HERE -->
+			{% endfor %}
+
+		</div>
+		<aside class="chapter-aside">
+			<div class="newsletter-card pb-2">
+				<img class="newsletter-card--image" src="images/general_icons/AR_5.svg" alt="newsletter icon">
+				<h3 class="newsletter-card--heading pb-1">Newsletter</h3>
+				<p class="newsletter-card--text pb-1">
+					The latest articles directly to your email box. Don't miss it out!
+
+				</p>
+				<button id="subscribe-button" class="btn btn-newsletter">Subscribe</button>
+			</div>
+		</aside>
+	</section>
+
+	{{ include('front/components/subscribe.html.twig') }}
+
+	<div class="container bg-light">
+		<section
+			class="wrapper small-teasers">
+
+			<!-- SMALL TEASER STARTS HERE -->
+			<div class="small-teaser">
+				<img class="small-teaser--image-1" src="images/article_icons/black_white/c-1-alien.svg" alt="alien character from space">
+				{% set php = articles.1 %}
+				<h3>{{ php.title }}
+				</h3>
+				<p class="pb-2">{{ php.subtitle|slice(0,33) }}</p>
+				<div class="btn-teaser-wrapper">
+					<a class="btn btn-teaser-1 mb-2" href="{{ path('article-read', { id: 3 } ) }}">Read now</a>
+				</div>
+			</div>
+			<!-- SMALL TEASER ENDS HERE -->
+
+			<!-- SMALL TEASER STARTS HERE -->
+			<div class="small-teaser">
+				<img class="small-teaser--image-2" src="images/article_icons/black_white/c-2-pluto.svg" alt="alien character from space">
+				{% set wordpress = articles.5 %}
+				<h3>{{ wordpress.title }}
+				</h3>
+				<p class="pb-2">{{ wordpress.subtitle|slice(0,33) }}...</p>
+				<div class="btn-teaser-wrapper">
+					<a class="btn btn-teaser-2 mb-2" href="{{ path('article-read', { id: 7 } ) }}">Read now</a>
+				</div>
+			</div>
+
+			<!-- SMALL TEASER ENDS HERE -->
+
+			<!-- SMALL TEASER STARTS HERE -->
+			<div class="small-teaser">
+				<img class="small-teaser--image-3" src="images/article_icons/black_white/c-3-atronaut.svg" alt="alien character from space">
+				{% set symfony = articles.5 %}
+				<h3>{{ symfony.title }}
+				</h3>
+				<p class="pb-2">{{ symfony.subtitle|slice(0,33) }}...</p>
+				<div class="btn-teaser-wrapper">
+					<a class="btn btn-teaser-3 mb-2" href="{{ path('article-read', { id: 7 } ) }}">Read now</a>
+				</div>
+			</div>
+			<!-- SMALL TEASER ENDS HERE -->
+
+		</section>
+
+	</div>
+	<section class="wrapper  with-aside">
+		<div
+			class="chapter">
+
+			<!-- ARTICLE STARTS HERE -->
+			{% for article in articles|slice(3,5) %}
+				<article class="teaser mt-6">
+					<img class="teaser--image__under under-right" src="images/article_icons/black_white/alien-ship.svg" alt="image under article teaser">
+					<a class="teaser--anchor" href="{{ path('article-read', {'id': article.id }) }}">
+						<div class="teaser--wrapper">
+							<div class="teaser--logo">
+								<img src="images/article_icons/color/{{ article.icon }}" alt="article logo">
+							</div>
+							<div class="teaser--title">
+
+								<h3>{{ article.title }}</h3>
+								<p>Added on:
+									{{ article.createdAt|date("D/m/Y") }}</p>
+								<small class="teaser--category">
+									Category:
+									{% for category in article.categories %}
+										{{ category }}
+									{% endfor %}
+								</small>
+							</div>
+							<div class="teaser-bottom">
+								<p>{{ article.subtitle }}</p>
+							</div>
+						</div>
+					</a>
+				</article>
+			{% endfor %}
+			<!-- ARTICLE ENDS HERE -->
 
 
-</div>
-<aside class="chapter-aside">
-    <div class="newsletter-card pb-2">
-        <img class="newsletter-card--image" src="images/general_icons/AR_5.svg" alt="newsletter icon">
-        <h3 class="newsletter-card--heading pb-1">Newsletter</h3>
-        <p class="newsletter-card--text pb-1">
-        The latest articles directly to your email box. Don't miss it out!
-        
-        </p>
-        <button id="subscribe-button" class="btn btn-newsletter">Subscribe</button>
-    </div>
- </aside>
-</section>
-
-{{ include('front/components/subscribe.html.twig') }}
-
-<div class="container bg-light">
-<section class="wrapper small-teasers">
-
-    <!-- SMALL TEASER STARTS HERE -->
-    <div class="small-teaser">
-        <img class="small-teaser--image-1" src="images/article_icons/black_white/c-1-alien.svg" alt="alien character from space" >
-    {% set php = articles.1 %}
-    <h3>{{ php.title }} </h3>
-    <p class="pb-2">{{ php.subtitle|slice(0,33) }}</p>
-    <div class="btn-teaser-wrapper">
-    <a class="btn btn-teaser-1 mb-2" href="{{ path('article-read', { id: 3 } ) }}">Read now</a>
-</div>
-    </div>
-     <!-- SMALL TEASER ENDS HERE -->
-
-      <!-- SMALL TEASER STARTS HERE -->
-    <div class="small-teaser">
-        <img class="small-teaser--image-2" src="images/article_icons/black_white/c-2-pluto.svg" alt="alien character from space" >
-    {% set wordpress = articles.5 %}
-    <h3>{{ wordpress.title }} </h3>
-    <p class="pb-2">{{ wordpress.subtitle|slice(0,33) }}...</p>
-    <div class="btn-teaser-wrapper">
-    <a class="btn btn-teaser-2 mb-2" href="{{ path('article-read', { id: 7 } ) }}">Read now</a>
-</div>
-</div>
-   
-     <!-- SMALL TEASER ENDS HERE -->
-
-      <!-- SMALL TEASER STARTS HERE -->
-    <div class="small-teaser">
-        <img class="small-teaser--image-3" src="images/article_icons/black_white/c-3-atronaut.svg" alt="alien character from space" >
-    {% set symfony = articles.5 %}
-    <h3>{{ symfony.title }} </h3>
-    <p class="pb-2">{{ symfony.subtitle|slice(0,33) }}...</p>
-    <div class="btn-teaser-wrapper">
-    <a class="btn btn-teaser-3 mb-2" href="{{ path('article-read', { id: 7 } ) }}">Read now</a>
-</div>
-    </div>
-     <!-- SMALL TEASER ENDS HERE -->
- 
-</section>
-
-</div>
-<section class="wrapper  with-aside">
-    <div class="chapter">
- 
-      <!-- ARTICLE STARTS HERE -->
-    {% for article in articles|slice(3,5) %}
-    <article class="teaser mt-6">
-        <img class="teaser--image__under under-right" src="images/article_icons/black_white/alien-ship.svg" alt="image under article teaser">
-        <a class="teaser--anchor" href="{{ path('article-read', {'id': article.id }) }}">
-            <div class="teaser--wrapper">
-        <div class="teaser--logo">
-            <img src="images/article_icons/color/{{ article.icon }}" alt="article logo">
-        </div>
-        <div class="teaser--title">
-        
-            <h3>{{ article.title }}</h3>
-            <p>Added on: {{ article.createdAt|date("D/m/Y") }}</p>
-            <small class="teaser--category">
-                Category: {% for category in article.categories %}
-                {{ category }}
-                {% endfor %}
-            </small>
-        </div>
-        <div class="teaser-bottom">
-            <p>{{ article.subtitle }}</p>
-        </div>
-    </div>
-    </a>
-    </article>
-    {% endfor %}
-    <!-- ARTICLE ENDS HERE -->
-    
-
- </div>
- <aside class="chapter-aside">
-     <div class="aboutme-card pb-2">
-         <img class="aboutme-card--image" src="images/general_icons/morty.svg" alt="character image">
-         <h3 class="aboutme-card--heading pb-1">About myself :)</h3>
-         <p class="aboutme-card--text pb-1">
-         My name is Piotr and mostly I develop in and learn PHP. Also a bit of front-end.
-         Altough I am still learning basic stuff I'd like to share my knowledge with you.
-        </p>
-     </div>
-  </aside>
- </section>
-<div class="bg-light mt-4">
-<img class="peaks-footer" src="images/peaks-footer.svg" alt="">
-</div>
-<div class="container bg-light ">
-<footer class="wrapper articles-bottom">
-  <div>
-      <img class="footer--image__logo" src="images/logo-footer.svg" alt="devRide logo">
-      <a href=""><small>www.github.com/piotr979</small></a>
-  </div>
-  <div class="footer--middle">
-      <p>devStripp is about programming.
-        If you would like to receive the latest articles I encourage you to subscribe.
-      </p>
-  </div>
-  <div class="">
-      <img class="footer--image" src="images/general_icons/AR_6.svg" alt="">
-  </div>
-</section>
-</div>
-
-	
+		</div>
+		<aside class="chapter-aside">
+			<div class="aboutme-card pb-2">
+				<img class="aboutme-card--image" src="images/general_icons/morty.svg" alt="character image">
+				<h3 class="aboutme-card--heading pb-1">About myself :)</h3>
+				<p class="aboutme-card--text pb-1">
+					My name is Piotr and mostly I develop in and learn PHP. Also a bit of front-end.
+					         Altough I am still learning basic stuff I'd like to share my knowledge with you.
+				</p>
+			</div>
+		</aside>
+	</section>
+	<div class="bg-light mt-4">
+		<img class="peaks-footer" src="images/peaks-footer.svg" alt="">
+	</div>
+	<div class="container bg-light ">
+		<footer class="wrapper articles-bottom">
+			<div>
+				<img class="footer--image__logo" src="images/logo-footer.svg" alt="devRide logo">
+				<a href="">
+					<small>www.github.com/piotr979</small>
+				</a>
+			</div>
+			<div class="footer--middle">
+				<p>devStripp is about programming.
+					        If you would like to receive the latest articles I encourage you to subscribe.
+				</p>
+			</div>
+			<div class="">
+				<img class="footer--image" src="images/general_icons/AR_6.svg" alt="">
+			</div>
+		</section>
+	</div>
 
 {% endblock %}
 {% block javascripts %}
-{{ parent() }}
-{{ encore_entry_script_tags('subscribe') }}
+	{{ parent() }}
+	{{ encore_entry_script_tags('subscribe') }}
 {% endblock %}

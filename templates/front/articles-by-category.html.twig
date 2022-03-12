@@ -1,78 +1,78 @@
 {% extends 'front/base.html.twig' %}
 
 {% block body %}
-<div class="container bg-light">
-{% include('front/components/header-bright.html.twig') %}
+	<div class="container bg-light">
+		{% include('front/components/header-bright.html.twig') %}
 
-</div>
-<div class="container bg-light pt-5 pb-5 container-hero">
-   <h2 class="txt-center">Articles of {{ category }} category</h2>
-</div>
-
-
-
-    
-<section class="wrapper  with-aside">
-   <div class="chapter">
-
-    <!-- ARTICLE STARTS HERE -->
-    {% for article in articles %}
-    <article class="teaser mt-6">
-        <img class="teaser--image__under under-right" src="images/article_icons/black_white/alien-ship.svg" alt="image under article teaser">
-        <a class="teaser--anchor" href="{{ path('article-read', {'id': article.id }) }}">
-            <div class="teaser--wrapper">
-        <div class="teaser--logo">
-            <img src="{{ asset('images/article_icons/color/' ~ article.icon ) }}" alt="article logo">
-        </div>
-        <div class="teaser--title">
-        
-            <h3>{{ article.title }}</h3>
-            <p>Added on: {{ article.createdAt|date("D/m/Y") }}</p>
-       
-        </div>
-        <div class="teaser-bottom">
-            <p>{{ article.subtitle }}</p>
-        </div>
-    </div>
-    </a>
-    </article>
-    
-    <!-- ARTICLE ENDS HERE -->
-    {% endfor %}
+	</div>
+	<div class="container bg-light pt-5 pb-5 container-hero">
+		<h2 class="txt-center">Articles of
+			{{ category }}
+			category</h2>
+	</div>
 
 
-</div>
-<aside class="chapter-aside">
-    <div class="newsletter-card pb-2">
-        <img class="newsletter-card--image" src="{{ asset('images/general_icons/AR_5.svg') }}" alt="newsletter icon">
-        <h3 class="newsletter-card--heading pb-1">Newsletter</h3>
-        <p class="newsletter-card--text pb-1">
-        The latest articles directly to your email box. Don't miss it out!
-        </p>
-        <a href="#" class="btn btn-newsletter">Subscribe</a>
-    </div>
- </aside>
-</section>
+	<section class="wrapper  with-aside">
+		<div class="chapter">
 
+			<!-- ARTICLE STARTS HERE -->
+			{% for article in articles %}
+				<article class="teaser mt-6">
+					<img class="teaser--image__under under-right" src="images/article_icons/black_white/alien-ship.svg" alt="image under article teaser">
+					<a class="teaser--anchor" href="{{ path('article-read', {'id': article.id }) }}">
+						<div class="teaser--wrapper">
+							<div class="teaser--logo">
+								<img src="{{ asset('images/article_icons/color/' ~ article.icon ) }}" alt="article logo">
+							</div>
+							<div class="teaser--title">
 
+								<h3>{{ article.title }}</h3>
+								<p>Added on:
+									{{ article.createdAt|date("D/m/Y") }}</p>
 
-<div class="bg-light mt-4">
-<img class="peaks-footer" src="images/peaks-footer.svg" alt="">
-</div>
-<div class="container bg-light ">
-<footer class="wrapper articles-bottom">
-  <div>
-      <img class="footer--image__logo" src="{{ asset('images/logo-footer.svg') }}" alt="devRide logo">
-      <a href=""><small>www.github.com/piotr979</small></a>
-  </div>
-  <div class="footer--middle">
-      <p>devStripp is about programming.
-        If you would like to receive the latest articles I encourage you to subscribe.
-      </p>
-  </div>
-  <div class="">
-      <img class="footer--image" src="{{ asset('images/general_icons/AR_6.svg') }}" alt="">
-  </div>
-</section>
-</div>
+							</div>
+							<div class="teaser-bottom">
+								<p>{{ article.subtitle }}</p>
+							</div>
+						</div>
+					</a>
+				</article>
+
+				<!-- ARTICLE ENDS HERE -->
+			{% endfor %}
+
+		</div>
+		<aside class="chapter-aside">
+			<div class="newsletter-card pb-2">
+				<img class="newsletter-card--image" src="{{ asset('images/general_icons/AR_5.svg') }}" alt="newsletter icon">
+				<h3 class="newsletter-card--heading pb-1">Newsletter</h3>
+				<p class="newsletter-card--text pb-1">
+					The latest articles directly to your email box. Don't miss it out!
+				</p>
+				<a href="#" class="btn btn-newsletter">Subscribe</a>
+			</div>
+		</aside>
+	</section>
+
+	<div class="bg-light mt-4">
+		<img class="peaks-footer" src="images/peaks-footer.svg" alt="">
+	</div>
+	<div class="container bg-light ">
+		<footer class="wrapper articles-bottom">
+			<div>
+				<img class="footer--image__logo" src="{{ asset('images/logo-footer.svg') }}" alt="devRide logo">
+				<a href="">
+					<small>www.github.com/piotr979</small>
+				</a>
+			</div>
+			<div class="footer--middle">
+				<p>devStripp is about programming.
+					        If you would like to receive the latest articles I encourage you to subscribe.
+				</p>
+			</div>
+			<div class="">
+				<img class="footer--image" src="{{ asset('images/general_icons/AR_6.svg') }}" alt="">
+			</div>
+		</section>
+	</div>
 {% endblock %}

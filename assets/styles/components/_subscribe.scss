@@ -1,5 +1,5 @@
 #subscribe-float {
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.4);
     position: fixed;
     z-index: 999;
     top: 0;
@@ -27,10 +27,14 @@
     animation-name: animatedown;
     animation-duration: .8s;
 }
-.subscribe-modal label, .subscribe-modal h3 {
+
+.subscribe-modal label,
+.subscribe-modal h3 {
     display: block;
 }
-.subscribe-modal input, .subscribe-modal textarea {
+
+.subscribe-modal input,
+.subscribe-modal textarea {
     height: 1.5rem;
     background-color: #bbb895;
     border: 1px solid $c-gray-2;

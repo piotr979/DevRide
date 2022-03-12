@@ -16,7 +16,7 @@
 
 			<tbody>
 				{% for category in categories %}
-					<tr class="category-row" data-category="{{ category.name }}" data-id="{{ category.id }}" >
+					<tr class="category-row" data-category="{{ category.name }}" data-id="{{ category.id }}">
 						<td class="pt-1">
 							{{ category.name }}
 						</td>
@@ -32,25 +32,24 @@
 	<div>
 		<h4 class="mt-3">New category</h4>
 		{{ form(catForm) }}
-	</div>
+		</div>
 
-  	<div id="modal" class="modal">
-		<div class="modal-content">
-			<p class="txt-center">Enter category name</p>
-			<small class="txt-center" id="modal-error"></small>
+		<div id="modal" class="modal">
+			<div class="modal-content">
+				<p class="txt-center">Enter category name</p>
+				<small class="txt-center" id="modal-error"></small>
 				<input id="category-input" name="category" class="txt-center" value="" maxlength="20" required>
 				<div class="mt-2 txt-center">
 					<button id="ok-button" class="btn-admin btn-admin__secondary me-1">OK</button>
 					<button id="cancel-button" class="btn-admin btn-admin__primary">Cancel</button>
 				</div>
 
+			</div>
 		</div>
-	</div>
 
-{% endblock %}
-{% block javascripts %}
-	{{ parent() }}
-{{ encore_entry_script_tags('modal') }}
-	
-{% endblock %}
+	{% endblock %}
 
+	{% block javascripts %}
+		{{ parent() }}
+		{{ encore_entry_script_tags('modal') }}
+	{% endblock %}

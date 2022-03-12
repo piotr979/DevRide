@@ -1,32 +1,25 @@
 <div class="nav-clip-path " id="nav-parent">
-    <header class="wrapper header justify-spread backgrounds-styling" 
-    style="
-    background-image: url('images/nav/bg-header/stars.svg'), 
-    url('images/nav/bg-header/circles.svg'), 
-    url('images/nav/bg-header/cassiopeia.svg'); 
-   ">
-   
-        <div class="logo">
-      
-        <img class="logo-icon" src="{{ asset('images/nav/ring-ship.svg') }}" alt="ship with ring icon">
-       
-        <img src="{{ asset('images/logo.svg') }}" alt="">
-        
-        </div>
-        
-        <nav class="top-nav">
-            
-            <div class="mb-5 peaks-mobile">
-                <div class="bg-light"></div>
-                <img class="peaks-footer" src="images/peaks-footer-with-background.svg" alt="">
-                </div>
-         
-        {{ include('front/components/nav-menu.html.twig') }}
-            
-        </nav>
-        <button class="btn-mobile-nav">
-            <img class="open-mobile-nav icon-mobile-nav" src="{{ asset('images/nav/hamburger.svg') }}" alt="Open mobile menu">
-            <img class="close-mobile-nav icon-mobile-nav" src="{{ asset('images/nav/close_big.svg') }}" alt="Close mobile menu">
-        </button>
-    </header> 
+	<header class="wrapper header justify-spread backgrounds-styling" style="
+			    background-image: url('images/nav/bg-header/stars.svg'),
+			    url('images/nav/bg-header/circles.svg'),
+			    url('images/nav/bg-header/cassiopeia.svg');
+			   ">
+
+		<div class="logo">
+			<img class="logo-icon" src="{{ asset('images/nav/ring-ship.svg') }}" alt="ship with ring icon">
+			<img src="{{ asset('images/logo.svg') }}" alt="">
+		</div>
+
+		<nav class="top-nav">
+			<div class="mb-5 peaks-mobile">
+				<div class="bg-light"></div>
+				<img class="peaks-footer" src="images/peaks-footer-with-background.svg" alt="">
+			</div>
+			{{ include('front/components/nav-menu.html.twig') }}
+		</nav>
+		<button class="btn-mobile-nav">
+			<img class="open-mobile-nav icon-mobile-nav" src="{{ asset('images/nav/hamburger.svg') }}" alt="Open mobile menu">
+			<img class="close-mobile-nav icon-mobile-nav" src="{{ asset('images/nav/close_big.svg') }}" alt="Close mobile menu">
+		</button>
+	</header>
 </div>

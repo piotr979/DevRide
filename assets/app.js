@@ -12,4 +12,5 @@ import './js/custom.js';
 //import './js/prism.js';
 
 // start the Stimulus application
+
 //import './bootstrap';

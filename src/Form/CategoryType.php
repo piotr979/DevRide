@@ -23,8 +23,7 @@ class CategoryType extends AbstractType
                 'attr' => [
                     'class' => 'btn-admin btn-admin__primary'
                 ]
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

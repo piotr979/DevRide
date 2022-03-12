@@ -1,7 +1,9 @@
-.login-form__wrapper input, .login-form__wrapper label {
+.login-form__wrapper input,
+.login-form__wrapper label {
     display: block;
     text-align: center;
 }
+
 .login-form__wrapper input {
     border: 1px solid $c-tint-1;
     margin-top: .6rem;
@@ -9,16 +11,19 @@
     height: 2rem;
     filter: none;
 }
+
 .login-form__wrapper input:autofill,
-.login-form__wrapper input:-webkit-autofill  {
+.login-form__wrapper input:-webkit-autofill {
     background: $c-primary;
     background-color: $c-primary;
 }
+
 .login-form__wrapper button {
     width: 7rem;
     margin: 2rem auto;
     padding: 0.3rem 1rem;
-  }
+}
+
 .login-form__message {
     margin: 0 auto;
     padding-top: 1rem;

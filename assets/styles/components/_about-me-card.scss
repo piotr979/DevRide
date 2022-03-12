@@ -1,20 +1,24 @@
 .aboutme-card {
     background-image: linear-gradient(136deg, #171F45 0%, #081628 100%);
     border-radius: 15px;
-margin: 0 auto;
-width: 100%;
-text-align: center;
-padding: 0 1rem;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    padding: 0 1rem;
 }
+
 .aboutme-card--heading {
     color: $c-tint-4;
 }
- .aboutme-card--text {
+
+.aboutme-card--text {
     color: $c-gray-5;
 }
+
 .aboutme-card--heading {
     text-transform: uppercase
 }
+
 .aboutme-card--image {
     filter: drop-shadow(0 2px 12px #644726);
     width: 8rem;

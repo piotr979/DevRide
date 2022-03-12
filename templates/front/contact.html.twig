@@ -2,13 +2,12 @@
 
 
 {% block body %}
-<div class="container container-contact bg-light">
-
-
-{% include('front/components/header-bright.html.twig') %}
-<div class="wrapper contact-form">
-<h2 class="txt-center mb-3">Contact form</h2>
-    {{ form(form) }}
-</div>
-    </div>
-{% endblock %}
+	<div class="container container-contact bg-light">
+		{% include('front/components/header-bright.html.twig') %}
+        
+		<div class="wrapper contact-form">
+			<h2 class="txt-center mb-3">Contact form</h2>
+			{{ form(form) }}
+			</div>
+		</div>
+	{% endblock %}

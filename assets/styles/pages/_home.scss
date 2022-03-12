@@ -1,38 +1,43 @@
 .sattelite-in-background {
-    display: none;
-    position: absolute;
-    opacity: 0.05;
-    width: 20rem;
-    right: 0;
-    bottom:-14rem;
-  }
-
-  .heading {
-    position: relative;
-     max-width: 1440px;
-     margin: 0 auto;
-     padding-left: 1rem;
-   }
-   .heading-image {
-     width: 4rem;
-     height: auto;
-     z-index: 10;
-   
-   }
-   .teaser--anchor {
-     cursor: pointer;
-   }
-.teaser--logo img {
-    transition: .8s all;
+  display: none;
+  position: absolute;
+  opacity: 0.05;
+  width: 20rem;
+  right: 0;
+  bottom: -14rem;
 }
+
+.heading {
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-left: 1rem;
+}
+
+.heading-image {
+  width: 4rem;
+  height: auto;
+  z-index: 10;
+
+}
+
+.teaser--anchor {
+  cursor: pointer;
+}
+
+.teaser--logo img {
+  transition: .8s all;
+}
+
 .teaser--wrapper {
   transition: .4s all;
 }
+
 .teaser--wrapper:hover {
   background-color: lighten($c-shade-1, 4%);
- 
-}
-.teaser:hover .teaser--logo img {
-    transform: rotateZ(15deg);
+
 }
 
+.teaser:hover .teaser--logo img {
+  transform: rotateZ(15deg);
+}

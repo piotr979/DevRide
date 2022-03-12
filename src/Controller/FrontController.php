@@ -57,7 +57,7 @@ class FrontController extends AbstractController
         ]);
     }
 
-     /* *********************
+    /* *********************
     ** READING ARTICLE (DARKER PAGE)
     ************************/
 
@@ -70,7 +70,7 @@ class FrontController extends AbstractController
         ]);
     }
 
-      /* *********************
+    /* *********************
     ** DISPLAY ARTICLES BY CATEGORY 
     ************************/
 
@@ -83,6 +83,4 @@ class FrontController extends AbstractController
             'category' => $category
         ]);
     }
-
-
 }
