@@ -1,0 +1,22 @@
+{
+  "entrypoints": {
+    "app": {
+      "css": [
+        "/build/app.css"
+      ],
+      "js": [
+        "/build/app.js"
+      ]
+    },
+    "modal": {
+      "js": [
+        "/build/modal.js"
+      ]
+    },
+    "subscribe": {
+      "js": [
+        "/build/subscribe.js"
+      ]
+    }
+  }
+}
