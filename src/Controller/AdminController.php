@@ -22,6 +22,8 @@ class AdminController extends AbstractController
     {
         $this->doctrine = $doctrine;
     }
+
+    /* Main route of admin page */
     #[Route('/', name: 'articles')]
     public function index(): Response
     {
@@ -56,13 +58,12 @@ class AdminController extends AbstractController
     }
 
     #[Route('/edit-article/{id}', name: 'edit-article')]
-    public function editArticle(Article $article, Request $request, ManagerRegistry $doctrine): Response
+    public function editArticle(Article $article, Request $request): Response
     {
-    
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $doctrine->getManager();
+            $em = $this->doctrine->getManager();
             $article->setContent(TinyMCEProcessor::convertToChapter($article->getContent()));
             $em->persist($article);
             $em->flush();
@@ -78,18 +79,39 @@ class AdminController extends AbstractController
         $categories = $this->doctrine->getRepository(Category::class)->findAll();
         $category = new Category();
         $form = $this->createForm(CategoryType::class, $category);
+
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->doctrine->getManager();
-            $em->persist($category);
-            $em->flush();
+            $newCat = $form->getData()->getName();
+            // check for duplicate  
+            if (in_array($newCat, $categories)) {
+                $this->addFlash(
+                   'notice',
+                   'Category exists. Enter different name.'
+                );    
+            } else if ($newCat === '') {
+                $this->addFlash(
+                    'notice',
+                    'Field was blank. Enter category name.'
+                );
+            } else {
+                $em = $this->doctrine->getManager();
+                $em->persist($category);
+                $em->flush();
+                $this->addFlash(
+                    'notice',
+                    'New category has been created.'
+                );
+            };
             return $this->redirectToRoute('categories');
         }
+        
         return $this->render('admin/categories.html.twig', [
             'categories' => $categories,
             'catForm' => $form->createView()
         ]);
     }
+    
     #[Route('/category-save/{id}/{name}', name: 'category-save')]
     public function categorySave($id, $name = "nothing")
     {
@@ -100,6 +122,7 @@ class AdminController extends AbstractController
         $em->flush();
         return $this->redirectToRoute('categories');
     }
+
     #[Route('/article-delete/{id}', name: 'article-delete')]
     public function articleDelete($id)
     {
@@ -110,6 +133,7 @@ class AdminController extends AbstractController
         $this->addFlash('notice', 'Item has been removed.');
         return $this->redirectToRoute('articles');
     }
+
     #[Route('/category-delete/{id}', name: 'category-delete')]
     public function categoryDelete($id)
     {
@@ -120,6 +144,7 @@ class AdminController extends AbstractController
         $this->addFlash('notice', 'Item has been removed.');
         return $this->redirectToRoute('categories');
     }
+
     #[Route('/website-settings', name: 'website-settings')]
     public function websiteSettings()
     {

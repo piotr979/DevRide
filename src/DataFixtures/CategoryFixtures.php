@@ -11,12 +11,21 @@ class CategoryFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        $category = $this->createCategory('php');
-        $category = $this->createCategory('symfony');
-        $category = $this->createCategory('swift');
-        $category = $this->createCategory('news');
-        $category = $this->createCategory('article');
-        $manager->persist($category);
+        $categories = [
+            'php',
+            'symfony',
+            'swift',
+            'news',
+            'mySQL',
+            'twig',
+            'html\/css',
+            'javascript'
+        ];
+        
+        foreach($categories as $category) {
+            $catReady = $this->createCategory($category);
+            $manager->persist($catReady);
+        }
         $manager->flush();
     }
     public function createCategory(string $name)

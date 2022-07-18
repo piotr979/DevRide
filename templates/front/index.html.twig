@@ -3,7 +3,6 @@
 {% block body %}
 	<div class="container bg-light">
 		{% include('front/components/header-bright.html.twig') %}
-
 	</div>
 	<div class="container bg-light pt-5 pb-5 container-hero">
 		<div class="hero-background">
@@ -26,13 +25,13 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
+
 	<img class="peaks-hero" src="images/peaks-hero.svg" alt="">
+
 	<div class="container p-relative">
 		<img class="sattelite-in-background" src="images/article_icons/black_white/satellite.svg" alt="image under article teaser">
 	</div>
-
 	<div id="latest" class="heading">
 		<h4 class="heading-text">The latest articles
 			<span class="heading-shadowed">The latest articles</span>
@@ -41,8 +40,8 @@
 
 	<section class="wrapper  with-aside">
 		<div class="chapter">
-
 			<!-- ARTICLE STARTS HERE -->
+			{% if articles|length > 2 %}
 			{% for article in articles|slice(0,3) %}
 				<article class="teaser mt-6">
 					<img class="teaser--image__under under-right" src="images/article_icons/black_white/alien-ship.svg" alt="image under article teaser">
@@ -70,9 +69,10 @@
 				</article>
 
 				<!-- ARTICLE ENDS HERE -->
-			{% endfor %}
-
+				{% endfor %}
+			{% endif %}
 		</div>
+
 		<aside class="chapter-aside">
 			<div class="newsletter-card pb-2">
 				<img class="newsletter-card--image" src="images/general_icons/AR_5.svg" alt="newsletter icon">
@@ -89,8 +89,9 @@
 	{{ include('front/components/subscribe.html.twig') }}
 
 	<div class="container bg-light">
-		<section
-			class="wrapper small-teasers">
+		<section class="wrapper small-teasers">
+
+		{% if articles|length > 6 %}
 
 			<!-- SMALL TEASER STARTS HERE -->
 			<div class="small-teaser">
@@ -132,6 +133,7 @@
 			</div>
 			<!-- SMALL TEASER ENDS HERE -->
 
+		{% endif %}
 		</section>
 
 	</div>
@@ -140,7 +142,7 @@
 			class="chapter">
 
 			<!-- ARTICLE STARTS HERE -->
-			{% for article in articles|slice(3,5) %}
+			{% for article in articles|slice(3,3) %}
 				<article class="teaser mt-6">
 					<img class="teaser--image__under under-right" src="images/article_icons/black_white/alien-ship.svg" alt="image under article teaser">
 					<a class="teaser--anchor" href="{{ path('article-read', {'id': article.id }) }}">
@@ -168,7 +170,6 @@
 				</article>
 			{% endfor %}
 			<!-- ARTICLE ENDS HERE -->
-
 
 		</div>
 		<aside class="chapter-aside">

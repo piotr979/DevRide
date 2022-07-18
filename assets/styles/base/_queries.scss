@@ -301,3 +301,12 @@
 }
 
 @media screen and (min-width: 98em) {}
+
+@media screen and (max-width:768px ) {
+  .mobile-hide {
+    display: none;
+  }
+  a.btn-admin, button.btn-admin {
+    padding: .4rem .1rem;
+  }
+}

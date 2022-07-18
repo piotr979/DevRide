@@ -20,10 +20,7 @@ class FrontController extends AbstractController
         $this->doctrine = $doctrine;
     }
 
-    /* *********************
-    ** MAIN PAGE
-    ************************/
-
+    /* Main route of front page */
     #[Route('/', name: 'main')]
     public function index(Request $request): Response
     {
@@ -33,16 +30,11 @@ class FrontController extends AbstractController
         if ($subscribeForm->isSubmitted() && $subscribeForm->isValid()) {
             $subscriberData = $subscribeForm->getData();
         }
-        //dump($articles);
         return $this->render('front/index.html.twig', [
             'articles' => $articles,
             'subscribeForm' => $subscribeForm->createView()
         ]);
     }
-
-    /* *********************
-    ** CONTACT
-    ************************/
 
     #[Route('/contact', name: 'contact')]
     public function contact(Request $request)
@@ -51,16 +43,15 @@ class FrontController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $contact = $form->getData();
+            // TO BE DONE
+            
         }
         return $this->render('front/contact.html.twig', [
             'form' => $form->createView()
         ]);
     }
 
-    /* *********************
-    ** READING ARTICLE (DARKER PAGE)
-    ************************/
-
+    /* Article page (dark one) */
     #[Route('/article-read/{id}', name: 'article-read')]
     public function articleRead($id)
     {
@@ -69,10 +60,6 @@ class FrontController extends AbstractController
             'article' => $article
         ]);
     }
-
-    /* *********************
-    ** DISPLAY ARTICLES BY CATEGORY 
-    ************************/
 
     #[Route('/articles-category/{category}', name: 'articles-category')]
     public function articlesByCategory($category)
