@@ -19,7 +19,7 @@ class Article
     #[ORM\Column(type: 'string', length: 80)]
     private $title;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'string', length: 512)]
     private $subtitle;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]

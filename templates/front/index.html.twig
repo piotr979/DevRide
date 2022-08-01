@@ -91,17 +91,15 @@
 	<div class="container bg-light">
 		<section class="wrapper small-teasers">
 
-		{% if articles|length > 6 %}
+		{% if articles|length > 5 %}
 
 			<!-- SMALL TEASER STARTS HERE -->
 			<div class="small-teaser">
 				<img class="small-teaser--image-1" src="images/article_icons/black_white/c-1-alien.svg" alt="alien character from space">
-				{% set php = articles.1 %}
-				<h3>{{ php.title }}
-				</h3>
-				<p class="pb-2">{{ php.subtitle|slice(0,33) }}</p>
+				<h3>Symfony</h3>
+				<p class="pb-2">See all symfony articles.</p>
 				<div class="btn-teaser-wrapper">
-					<a class="btn btn-teaser-1 mb-2" href="{{ path('article-read', { id: 3 } ) }}">Read now</a>
+					<a class="btn btn-teaser-1 mb-2" href="{{ path('articles-category', { category: 'symfony' } ) }}">Read now</a>
 				</div>
 			</div>
 			<!-- SMALL TEASER ENDS HERE -->
@@ -109,12 +107,12 @@
 			<!-- SMALL TEASER STARTS HERE -->
 			<div class="small-teaser">
 				<img class="small-teaser--image-2" src="images/article_icons/black_white/c-2-pluto.svg" alt="alien character from space">
-				{% set wordpress = articles.5 %}
-				<h3>{{ wordpress.title }}
+				
+				<h3>PHP tutorials
 				</h3>
-				<p class="pb-2">{{ wordpress.subtitle|slice(0,33) }}...</p>
+				<p class="pb-2">Basics of PHP language</p>
 				<div class="btn-teaser-wrapper">
-					<a class="btn btn-teaser-2 mb-2" href="{{ path('article-read', { id: 7 } ) }}">Read now</a>
+					<a class="btn btn-teaser-2 mb-2" href="{{ path('articles-category', { category: 'php' } ) }}">Read now</a>
 				</div>
 			</div>
 
@@ -123,12 +121,12 @@
 			<!-- SMALL TEASER STARTS HERE -->
 			<div class="small-teaser">
 				<img class="small-teaser--image-3" src="images/article_icons/black_white/c-3-atronaut.svg" alt="alien character from space">
-				{% set symfony = articles.5 %}
-				<h3>{{ symfony.title }}
+				
+				<h3>MySQL
 				</h3>
-				<p class="pb-2">{{ symfony.subtitle|slice(0,33) }}...</p>
+				<p class="pb-2">Find out how to use MySQL</p>
 				<div class="btn-teaser-wrapper">
-					<a class="btn btn-teaser-3 mb-2" href="{{ path('article-read', { id: 7 } ) }}">Read now</a>
+					<a class="btn btn-teaser-3 mb-2" href="{{ path('articles-category', { category: 'mysql' } ) }}">Read now</a>
 				</div>
 			</div>
 			<!-- SMALL TEASER ENDS HERE -->

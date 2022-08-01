@@ -18,7 +18,7 @@ class CategoryFixtures extends Fixture
             'news',
             'mySQL',
             'twig',
-            'html\/css',
+            'html/css',
             'javascript'
         ];
         

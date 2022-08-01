@@ -35,7 +35,8 @@ class ArticleType extends AbstractType
             ])
             ->add('subtitle', TextType::class, [
                 'attr' => [
-                    'class' => 'article-form__input'
+                    'class' => 'article-form__input',
+                    'maxLength' => 512
                 ]
             ])
             ->add('categories', EntityType::class, [
