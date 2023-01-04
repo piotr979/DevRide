@@ -22,7 +22,7 @@
         "symfony/form": "6.0.*",
         "symfony/framework-bundle": "6.0.*",
         "symfony/mailer": "6.0.*",
-        "symfony/maker-bundle": "^1.36",
+        "symfony/maker-bundle": "^1.48",
         "symfony/proxy-manager-bridge": "6.0.*",
         "symfony/runtime": "6.0.*",
         "symfony/security-bundle": "6.0.*",
